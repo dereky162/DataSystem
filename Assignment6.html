@@ -1,0 +1,367 @@
+<html><head><meta name="description" content="OutputUtil developed by LT. Executed by C:\Users\derek\PycharmProjects\pythonProject1">
+<style>body {
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1 {
+    color: darkgray;
+    text-align: center;
+}
+h3 {
+    color: darkgray;
+}
+.vericaltext {
+ writing-mode: vertical-lr;
+ text-orientation: upright;
+}
+
+table, th, td {
+    border: 1px solid;
+    text-align: center;
+    vertical-align: top
+}
+th > a {
+    color: white;
+}
+th {
+    background-color: darkgray;
+    color: white;
+}
+tr:nth-child(even) {
+    background-color: gray;
+}
+tr:nth-child(odd) {
+    background-color: lightgray;
+}</style>
+<script>
+function sortTable(tableId, colNum, colType) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchCount = 0;
+  table = document.getElementById(tableId);
+  switching = true;
+  dir = "asc";
+  while (switching) {
+    switching = false;
+    rows = table.rows;
+    for (i = 1; i < (rows.length - 1); i++) {
+      shouldSwitch = false;
+      x = rows[i].getElementsByTagName("td")[colNum];
+      y = rows[i + 1].getElementsByTagName("td")[colNum];
+      if (colType == 'N') { 
+        if (((dir == "asc") && (Number(x.innerHTML) > Number(y.innerHTML))) ||
+            ((dir == "desc") && (Number(x.innerHTML) < Number(y.innerHTML)))) {
+          shouldSwitch = true;
+          break;
+        }
+      } else {
+        if (((dir == "asc") && (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase())) ||
+            ((dir == "desc") && (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()))) {
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      switchCount ++;
+    } else {
+     if (switchCount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+</script>
+</head>
+<body><h1>All queries for 'Assignment 6'</h1>
+<h3>Table of Contents</h3>
+<ol><li><a href="#table-[6]-Retrieve-v_takes_points-view,-returning-tables-"takes"-with-numeric-equivalent-of-grades">[6] Retrieve v_takes_points view, returning tables "takes" with numeric equivalent of grades</a>
+</li>
+<li><a href="#table-[7]-Total-grade-points-for-student-X">[7] Total grade points for student X</a>
+</li>
+<li><a href="#table-[8]-GPA-for-student-X">[8] GPA for student X</a>
+</li>
+<li><a href="#table-[9]-Find-GPA-for-all-students">[9] Find GPA for all students</a>
+</li>
+<li><a href="#table-[10]-Retrieve-view-v_student_gpa-that-gives-a-dynamic-version-of-the-information-in-previous-question">[10] Retrieve view v_student_gpa that gives a dynamic version of the information in previous question</a>
+</li>
+</ol>
+<h3>[6] Retrieve v_takes_points view, returning tables "takes" with numeric equivalent of grades</h3>
+<table id="table-[6]-Retrieve-v_takes_points-view,-returning-tables-"takes"-with-numeric-equivalent-of-grades" style="width:100%"><th><a href="javascript:sortTable('table-[6]-Retrieve-v_takes_points-view,-returning-tables-"takes"-with-numeric-equivalent-of-grades', 0, 'N')"">ID</a>
+</th>
+<th><a href="javascript:sortTable('table-[6]-Retrieve-v_takes_points-view,-returning-tables-"takes"-with-numeric-equivalent-of-grades', 1, 'S')"">course_id</a>
+</th>
+<th><a href="javascript:sortTable('table-[6]-Retrieve-v_takes_points-view,-returning-tables-"takes"-with-numeric-equivalent-of-grades', 2, 'N')"">sec_id</a>
+</th>
+<th><a href="javascript:sortTable('table-[6]-Retrieve-v_takes_points-view,-returning-tables-"takes"-with-numeric-equivalent-of-grades', 3, 'S')"">semester</a>
+</th>
+<th><a href="javascript:sortTable('table-[6]-Retrieve-v_takes_points-view,-returning-tables-"takes"-with-numeric-equivalent-of-grades', 4, 'S')"">year</a>
+</th>
+<th><a href="javascript:sortTable('table-[6]-Retrieve-v_takes_points-view,-returning-tables-"takes"-with-numeric-equivalent-of-grades', 5, 'S')"">grade</a>
+</th>
+<th><a href="javascript:sortTable('table-[6]-Retrieve-v_takes_points-view,-returning-tables-"takes"-with-numeric-equivalent-of-grades', 6, 'S')"">points</a>
+</th>
+<tr><td style="text-align:right;">98988</td>
+<td style="text-align:left;">BIO-301</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Summer</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">None</td>
+<td style="text-align:left;">None</td>
+</tr>
+<tr><td style="text-align:right;">00128</td>
+<td style="text-align:left;">CS-101</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">A</td>
+<td style="text-align:left;">4.0</td>
+</tr>
+<tr><td style="text-align:right;">12345</td>
+<td style="text-align:left;">CS-190</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">A</td>
+<td style="text-align:left;">4.0</td>
+</tr>
+<tr><td style="text-align:right;">12345</td>
+<td style="text-align:left;">CS-315</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">A</td>
+<td style="text-align:left;">4.0</td>
+</tr>
+<tr><td style="text-align:right;">12345</td>
+<td style="text-align:left;">CS-347</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">A</td>
+<td style="text-align:left;">4.0</td>
+</tr>
+<tr><td style="text-align:right;">76543</td>
+<td style="text-align:left;">CS-101</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">A</td>
+<td style="text-align:left;">4.0</td>
+</tr>
+<tr><td style="text-align:right;">76543</td>
+<td style="text-align:left;">CS-319</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">A</td>
+<td style="text-align:left;">4.0</td>
+</tr>
+<tr><td style="text-align:right;">98988</td>
+<td style="text-align:left;">BIO-101</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Summer</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">A</td>
+<td style="text-align:left;">4.0</td>
+</tr>
+<tr><td style="text-align:right;">00128</td>
+<td style="text-align:left;">CS-347</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">A-</td>
+<td style="text-align:left;">3.7</td>
+</tr>
+<tr><td style="text-align:right;">54321</td>
+<td style="text-align:left;">CS-101</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">A-</td>
+<td style="text-align:left;">3.7</td>
+</tr>
+<tr><td style="text-align:right;">55739</td>
+<td style="text-align:left;">MU-199</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">A-</td>
+<td style="text-align:left;">3.7</td>
+</tr>
+<tr><td style="text-align:right;">19991</td>
+<td style="text-align:left;">HIS-351</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">B</td>
+<td style="text-align:left;">3.0</td>
+</tr>
+<tr><td style="text-align:right;">45678</td>
+<td style="text-align:left;">CS-319</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">B</td>
+<td style="text-align:left;">3.0</td>
+</tr>
+<tr><td style="text-align:right;">98765</td>
+<td style="text-align:left;">CS-315</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">B</td>
+<td style="text-align:left;">3.0</td>
+</tr>
+<tr><td style="text-align:right;">44553</td>
+<td style="text-align:left;">PHY-101</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">B-</td>
+<td style="text-align:left;">2.7</td>
+</tr>
+<tr><td style="text-align:right;">45678</td>
+<td style="text-align:left;">CS-101</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">B+</td>
+<td style="text-align:left;">3.3</td>
+</tr>
+<tr><td style="text-align:right;">54321</td>
+<td style="text-align:left;">CS-190</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">B+</td>
+<td style="text-align:left;">3.3</td>
+</tr>
+<tr><td style="text-align:right;">12345</td>
+<td style="text-align:left;">CS-101</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">C</td>
+<td style="text-align:left;">2.0</td>
+</tr>
+<tr><td style="text-align:right;">76653</td>
+<td style="text-align:left;">EE-181</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">C</td>
+<td style="text-align:left;">2.0</td>
+</tr>
+<tr><td style="text-align:right;">98765</td>
+<td style="text-align:left;">CS-101</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">C-</td>
+<td style="text-align:left;">1.7</td>
+</tr>
+<tr><td style="text-align:right;">23121</td>
+<td style="text-align:left;">FIN-201</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">C+</td>
+<td style="text-align:left;">2.3</td>
+</tr>
+<tr><td style="text-align:right;">45678</td>
+<td style="text-align:left;">CS-101</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">F</td>
+<td style="text-align:left;">0.0</td>
+</tr>
+</table>
+<h3>[7] Total grade points for student X</h3>
+<table id="table-[7]-Total-grade-points-for-student-X" style="width:100%"><th><a href="javascript:sortTable('table-[7]-Total-grade-points-for-student-X', 0, 'S')"">Total grade points for student ID: 00128</a>
+</th>
+<tr><td style="text-align:left;">338.8</td>
+</tr>
+</table>
+<h3>[8] GPA for student X</h3>
+<table id="table-[8]-GPA-for-student-X" style="width:100%"><th><a href="javascript:sortTable('table-[8]-GPA-for-student-X', 0, 'S')"">GPA for student ID: 00128</a>
+</th>
+<tr><td style="text-align:left;">3.85000</td>
+</tr>
+</table>
+<h3>[9] Find GPA for all students</h3>
+<table id="table-[9]-Find-GPA-for-all-students" style="width:100%"><th><a href="javascript:sortTable('table-[9]-Find-GPA-for-all-students', 0, 'S')"">Total GPA of all students</a>
+</th>
+<tr><td style="text-align:left;">2.00000</td>
+</tr>
+<tr><td style="text-align:left;">3.85000</td>
+</tr>
+<tr><td style="text-align:left;">3.50000</td>
+</tr>
+<tr><td style="text-align:left;">4.00000</td>
+</tr>
+<tr><td style="text-align:left;">3.50000</td>
+</tr>
+<tr><td style="text-align:left;">3.70000</td>
+</tr>
+<tr><td style="text-align:left;">3.00000</td>
+</tr>
+<tr><td style="text-align:left;">2.10000</td>
+</tr>
+<tr><td style="text-align:left;">2.35000</td>
+</tr>
+<tr><td style="text-align:left;">2.70000</td>
+</tr>
+<tr><td style="text-align:left;">2.00000</td>
+</tr>
+<tr><td style="text-align:left;">2.30000</td>
+</tr>
+</table>
+<h3>[10] Retrieve view v_student_gpa that gives a dynamic version of the information in previous question</h3>
+<table id="table-[10]-Retrieve-view-v_student_gpa-that-gives-a-dynamic-version-of-the-information-in-previous-question" style="width:100%"><th><a href="javascript:sortTable('table-[10]-Retrieve-view-v_student_gpa-that-gives-a-dynamic-version-of-the-information-in-previous-question', 0, 'S')"">Total GPA of all students</a>
+</th>
+<th><a href="javascript:sortTable('table-[10]-Retrieve-view-v_student_gpa-that-gives-a-dynamic-version-of-the-information-in-previous-question', 1, 'N')"">ID</a>
+</th>
+<tr><td style="text-align:left;">2.00000</td>
+<td style="text-align:right;">98988</td>
+</tr>
+<tr><td style="text-align:left;">3.85000</td>
+<td style="text-align:right;">00128</td>
+</tr>
+<tr><td style="text-align:left;">3.50000</td>
+<td style="text-align:right;">12345</td>
+</tr>
+<tr><td style="text-align:left;">4.00000</td>
+<td style="text-align:right;">76543</td>
+</tr>
+<tr><td style="text-align:left;">3.50000</td>
+<td style="text-align:right;">54321</td>
+</tr>
+<tr><td style="text-align:left;">3.70000</td>
+<td style="text-align:right;">55739</td>
+</tr>
+<tr><td style="text-align:left;">3.00000</td>
+<td style="text-align:right;">19991</td>
+</tr>
+<tr><td style="text-align:left;">2.10000</td>
+<td style="text-align:right;">45678</td>
+</tr>
+<tr><td style="text-align:left;">2.35000</td>
+<td style="text-align:right;">98765</td>
+</tr>
+<tr><td style="text-align:left;">2.70000</td>
+<td style="text-align:right;">44553</td>
+</tr>
+<tr><td style="text-align:left;">2.00000</td>
+<td style="text-align:right;">76653</td>
+</tr>
+<tr><td style="text-align:left;">2.30000</td>
+<td style="text-align:right;">23121</td>
+</tr>
+</table>
+<center><h6>&copy;2024 by Developer • Generated on Jan. 21, 2024 21:33 PM</h6>
+</center>
+</body>
+</html>

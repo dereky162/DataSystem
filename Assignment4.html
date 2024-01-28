@@ -1,0 +1,1066 @@
+<html><head><meta name="description" content="OutputUtil developed by LT. Executed by C:\Users\derek\PycharmProjects\pythonProject1">
+<style>body {
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1 {
+    color: darkgray;
+    text-align: center;
+}
+h3 {
+    color: darkgray;
+}
+.vericaltext {
+ writing-mode: vertical-lr;
+ text-orientation: upright;
+}
+
+table, th, td {
+    border: 1px solid;
+    text-align: center;
+    vertical-align: top
+}
+th > a {
+    color: white;
+}
+th {
+    background-color: darkgray;
+    color: white;
+}
+tr:nth-child(even) {
+    background-color: gray;
+}
+tr:nth-child(odd) {
+    background-color: lightgray;
+}</style>
+<script>
+function sortTable(tableId, colNum, colType) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchCount = 0;
+  table = document.getElementById(tableId);
+  switching = true;
+  dir = "asc";
+  while (switching) {
+    switching = false;
+    rows = table.rows;
+    for (i = 1; i < (rows.length - 1); i++) {
+      shouldSwitch = false;
+      x = rows[i].getElementsByTagName("td")[colNum];
+      y = rows[i + 1].getElementsByTagName("td")[colNum];
+      if (colType == 'N') { 
+        if (((dir == "asc") && (Number(x.innerHTML) > Number(y.innerHTML))) ||
+            ((dir == "desc") && (Number(x.innerHTML) < Number(y.innerHTML)))) {
+          shouldSwitch = true;
+          break;
+        }
+      } else {
+        if (((dir == "asc") && (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase())) ||
+            ((dir == "desc") && (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()))) {
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      switchCount ++;
+    } else {
+     if (switchCount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+</script>
+</head>
+<body><h1>All queries in Assignment 4 in Assignment4.sql</h1>
+<h3>Table of Contents</h3>
+<ol><li><a href="#table-Chap-3,-Slide-52.-List-all-departments-along-with-#-of-instructors-in-each-department">Chap 3, Slide 52. List all departments along with # of instructors in each department</a>
+</li>
+<li><a href="#table-Chap-3,-slide-9.-List-the-names-of-students-instructors-along-with-the-titles-of-courses-that-they-have-taken">Chap 3, slide 9. List the names of students instructors along with the titles of courses that they have taken</a>
+</li>
+<li><a href="#table-Chap-3,-slide-10.">Chap 3, slide 10.</a>
+</li>
+<li><a href="#table-Chap-3,-slide-11.-retrieve-all-the-info-for-students-taking-certain-courses.">Chap 3, slide 11. retrieve all the info for students taking certain courses.</a>
+</li>
+<li><a href="#table-Chap-3,-slide-11.-Equivalent-to-the-query-example-above.">Chap 3, slide 11. Equivalent to the query example above.</a>
+</li>
+<li><a href="#table-Chap-3,-slide-19">Chap 3, slide 19</a>
+</li>
+<li><a href="#table-Chap-3,-slide-19">Chap 3, slide 19</a>
+</li>
+<li><a href="#table-Homework-Query-#1:-Retrieve-all-courses-that-have-the-letters-a,-e,-i-in-THAT-order-in-their-names">Homework Query #1: Retrieve all courses that have the letters a, e, i in THAT order in their names</a>
+</li>
+<li><a href="#table-Homework-Query-#2:-Retrieve-all-courses-that-have-the-letters-a,-e,-i-in-ANY-order-in-their-names">Homework Query #2: Retrieve all courses that have the letters a, e, i in ANY order in their names</a>
+</li>
+<li><a href="#table-Homework-Query-#3:-Retrieve-the-names-of-all-students-who-failed-a-course-(grade-of-F)-along-with-the
+---name-of-the-course-that-they-failed.">Homework Query #3: Retrieve the names of all students who failed a course (grade of F) along with the
+   name of the course that they failed.</a>
+</li>
+<li><a href="#table-Homework-Query-#4:-Retrieve-the-percentage-of-solid-A-grades-compared-to-all-courses,
+---and-rename-that-column-"Percent_A"">Homework Query #4: Retrieve the percentage of solid A grades compared to all courses,
+   and rename that column "Percent_A"</a>
+</li>
+<li><a href="#table-Homework-Query-#5:-Retrieve-the-names-and-numbers-of-all-courses-that-do-not-have-prerequisites.">Homework Query #5: Retrieve the names and numbers of all courses that do not have prerequisites.</a>
+</li>
+<li><a href="#table-Homework-Query-#6:-Retrieves-the-names-of-all-students-and-their-advisors-if-they-have-one.">Homework Query #6: Retrieves the names of all students and their advisors if they have one.</a>
+</li>
+</ol>
+<h3>Chap 3, Slide 52. List all departments along with # of instructors in each department</h3>
+<table id="table-Chap-3,-Slide-52.-List-all-departments-along-with-#-of-instructors-in-each-department" style="width:100%"><th><a href="javascript:sortTable('table-Chap-3,-Slide-52.-List-all-departments-along-with-#-of-instructors-in-each-department', 0, 'S')"">dept_name</a>
+</th>
+<th><a href="javascript:sortTable('table-Chap-3,-Slide-52.-List-all-departments-along-with-#-of-instructors-in-each-department', 1, 'S')"">num_instructors</a>
+</th>
+<tr><td style="text-align:left;">Biology</td>
+<td style="text-align:left;">1</td>
+</tr>
+<tr><td style="text-align:left;">Comp. Sci.</td>
+<td style="text-align:left;">3</td>
+</tr>
+<tr><td style="text-align:left;">Elec. Eng.</td>
+<td style="text-align:left;">1</td>
+</tr>
+<tr><td style="text-align:left;">Finance</td>
+<td style="text-align:left;">2</td>
+</tr>
+<tr><td style="text-align:left;">History</td>
+<td style="text-align:left;">2</td>
+</tr>
+<tr><td style="text-align:left;">Music</td>
+<td style="text-align:left;">1</td>
+</tr>
+<tr><td style="text-align:left;">Physics</td>
+<td style="text-align:left;">2</td>
+</tr>
+</table>
+<h3>Chap 3, slide 9. List the names of students instructors along with the titles of courses that they have taken</h3>
+<table id="table-Chap-3,-slide-9.-List-the-names-of-students-instructors-along-with-the-titles-of-courses-that-they-have-taken" style="width:100%"><th><a href="javascript:sortTable('table-Chap-3,-slide-9.-List-the-names-of-students-instructors-along-with-the-titles-of-courses-that-they-have-taken', 0, 'S')"">name</a>
+</th>
+<th><a href="javascript:sortTable('table-Chap-3,-slide-9.-List-the-names-of-students-instructors-along-with-the-titles-of-courses-that-they-have-taken', 1, 'S')"">title</a>
+</th>
+<tr><td style="text-align:left;">Tanaka</td>
+<td style="text-align:left;">Genetics</td>
+</tr>
+<tr><td style="text-align:left;">Zhang</td>
+<td style="text-align:left;">Intro. to Computer Science</td>
+</tr>
+<tr><td style="text-align:left;">Shankar</td>
+<td style="text-align:left;">Game Design</td>
+</tr>
+<tr><td style="text-align:left;">Shankar</td>
+<td style="text-align:left;">Robotics</td>
+</tr>
+<tr><td style="text-align:left;">Shankar</td>
+<td style="text-align:left;">Database System Concepts</td>
+</tr>
+<tr><td style="text-align:left;">Brown</td>
+<td style="text-align:left;">Intro. to Computer Science</td>
+</tr>
+<tr><td style="text-align:left;">Brown</td>
+<td style="text-align:left;">Image Processing</td>
+</tr>
+<tr><td style="text-align:left;">Tanaka</td>
+<td style="text-align:left;">Intro. to Biology</td>
+</tr>
+<tr><td style="text-align:left;">Zhang</td>
+<td style="text-align:left;">Database System Concepts</td>
+</tr>
+<tr><td style="text-align:left;">Williams</td>
+<td style="text-align:left;">Intro. to Computer Science</td>
+</tr>
+<tr><td style="text-align:left;">Sanchez</td>
+<td style="text-align:left;">Music Video Production</td>
+</tr>
+<tr><td style="text-align:left;">Brandt</td>
+<td style="text-align:left;">World History</td>
+</tr>
+<tr><td style="text-align:left;">Levy</td>
+<td style="text-align:left;">Image Processing</td>
+</tr>
+<tr><td style="text-align:left;">Bourikas</td>
+<td style="text-align:left;">Robotics</td>
+</tr>
+<tr><td style="text-align:left;">Peltier</td>
+<td style="text-align:left;">Physical Principles</td>
+</tr>
+<tr><td style="text-align:left;">Levy</td>
+<td style="text-align:left;">Intro. to Computer Science</td>
+</tr>
+<tr><td style="text-align:left;">Williams</td>
+<td style="text-align:left;">Game Design</td>
+</tr>
+<tr><td style="text-align:left;">Shankar</td>
+<td style="text-align:left;">Intro. to Computer Science</td>
+</tr>
+<tr><td style="text-align:left;">Aoi</td>
+<td style="text-align:left;">Intro. to Digital Systems</td>
+</tr>
+<tr><td style="text-align:left;">Bourikas</td>
+<td style="text-align:left;">Intro. to Computer Science</td>
+</tr>
+<tr><td style="text-align:left;">Chavez</td>
+<td style="text-align:left;">Investment Banking</td>
+</tr>
+<tr><td style="text-align:left;">Levy</td>
+<td style="text-align:left;">Intro. to Computer Science</td>
+</tr>
+</table>
+<h3>Chap 3, slide 10.</h3>
+<table id="table-Chap-3,-slide-10." style="width:100%"><th><a href="javascript:sortTable('table-Chap-3,-slide-10.', 0, 'S')"">name</a>
+</th>
+<th><a href="javascript:sortTable('table-Chap-3,-slide-10.', 1, 'S')"">title</a>
+</th>
+<tr><td style="text-align:left;">Tanaka</td>
+<td style="text-align:left;">Genetics</td>
+</tr>
+<tr><td style="text-align:left;">Zhang</td>
+<td style="text-align:left;">Intro. to Computer Science</td>
+</tr>
+<tr><td style="text-align:left;">Shankar</td>
+<td style="text-align:left;">Game Design</td>
+</tr>
+<tr><td style="text-align:left;">Shankar</td>
+<td style="text-align:left;">Robotics</td>
+</tr>
+<tr><td style="text-align:left;">Shankar</td>
+<td style="text-align:left;">Database System Concepts</td>
+</tr>
+<tr><td style="text-align:left;">Brown</td>
+<td style="text-align:left;">Intro. to Computer Science</td>
+</tr>
+<tr><td style="text-align:left;">Brown</td>
+<td style="text-align:left;">Image Processing</td>
+</tr>
+<tr><td style="text-align:left;">Tanaka</td>
+<td style="text-align:left;">Intro. to Biology</td>
+</tr>
+<tr><td style="text-align:left;">Zhang</td>
+<td style="text-align:left;">Database System Concepts</td>
+</tr>
+<tr><td style="text-align:left;">Williams</td>
+<td style="text-align:left;">Intro. to Computer Science</td>
+</tr>
+<tr><td style="text-align:left;">Sanchez</td>
+<td style="text-align:left;">Music Video Production</td>
+</tr>
+<tr><td style="text-align:left;">Brandt</td>
+<td style="text-align:left;">World History</td>
+</tr>
+<tr><td style="text-align:left;">Levy</td>
+<td style="text-align:left;">Image Processing</td>
+</tr>
+<tr><td style="text-align:left;">Bourikas</td>
+<td style="text-align:left;">Robotics</td>
+</tr>
+<tr><td style="text-align:left;">Peltier</td>
+<td style="text-align:left;">Physical Principles</td>
+</tr>
+<tr><td style="text-align:left;">Levy</td>
+<td style="text-align:left;">Intro. to Computer Science</td>
+</tr>
+<tr><td style="text-align:left;">Williams</td>
+<td style="text-align:left;">Game Design</td>
+</tr>
+<tr><td style="text-align:left;">Shankar</td>
+<td style="text-align:left;">Intro. to Computer Science</td>
+</tr>
+<tr><td style="text-align:left;">Aoi</td>
+<td style="text-align:left;">Intro. to Digital Systems</td>
+</tr>
+<tr><td style="text-align:left;">Bourikas</td>
+<td style="text-align:left;">Intro. to Computer Science</td>
+</tr>
+<tr><td style="text-align:left;">Chavez</td>
+<td style="text-align:left;">Investment Banking</td>
+</tr>
+<tr><td style="text-align:left;">Levy</td>
+<td style="text-align:left;">Intro. to Computer Science</td>
+</tr>
+</table>
+<h3>Chap 3, slide 11. retrieve all the info for students taking certain courses.</h3>
+<table id="table-Chap-3,-slide-11.-retrieve-all-the-info-for-students-taking-certain-courses." style="width:100%"><th><a href="javascript:sortTable('table-Chap-3,-slide-11.-retrieve-all-the-info-for-students-taking-certain-courses.', 0, 'S')"">ID</a>
+</th>
+<th><a href="javascript:sortTable('table-Chap-3,-slide-11.-retrieve-all-the-info-for-students-taking-certain-courses.', 1, 'S')"">name</a>
+</th>
+<th><a href="javascript:sortTable('table-Chap-3,-slide-11.-retrieve-all-the-info-for-students-taking-certain-courses.', 2, 'S')"">dept_name</a>
+</th>
+<th><a href="javascript:sortTable('table-Chap-3,-slide-11.-retrieve-all-the-info-for-students-taking-certain-courses.', 3, 'S')"">tot_cred</a>
+</th>
+<th><a href="javascript:sortTable('table-Chap-3,-slide-11.-retrieve-all-the-info-for-students-taking-certain-courses.', 4, 'S')"">ID</a>
+</th>
+<th><a href="javascript:sortTable('table-Chap-3,-slide-11.-retrieve-all-the-info-for-students-taking-certain-courses.', 5, 'S')"">course_id</a>
+</th>
+<th><a href="javascript:sortTable('table-Chap-3,-slide-11.-retrieve-all-the-info-for-students-taking-certain-courses.', 6, 'S')"">sec_id</a>
+</th>
+<th><a href="javascript:sortTable('table-Chap-3,-slide-11.-retrieve-all-the-info-for-students-taking-certain-courses.', 7, 'S')"">semester</a>
+</th>
+<th><a href="javascript:sortTable('table-Chap-3,-slide-11.-retrieve-all-the-info-for-students-taking-certain-courses.', 8, 'S')"">year</a>
+</th>
+<th><a href="javascript:sortTable('table-Chap-3,-slide-11.-retrieve-all-the-info-for-students-taking-certain-courses.', 9, 'S')"">grade</a>
+</th>
+<tr><td style="text-align:left;">98988</td>
+<td style="text-align:left;">Tanaka</td>
+<td style="text-align:left;">Biology</td>
+<td style="text-align:left;">120</td>
+<td style="text-align:left;">98988</td>
+<td style="text-align:left;">BIO-301</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Summer</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">None</td>
+</tr>
+<tr><td style="text-align:left;">00128</td>
+<td style="text-align:left;">Zhang</td>
+<td style="text-align:left;">Comp. Sci.</td>
+<td style="text-align:left;">102</td>
+<td style="text-align:left;">00128</td>
+<td style="text-align:left;">CS-101</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">A</td>
+</tr>
+<tr><td style="text-align:left;">12345</td>
+<td style="text-align:left;">Shankar</td>
+<td style="text-align:left;">Comp. Sci.</td>
+<td style="text-align:left;">32</td>
+<td style="text-align:left;">12345</td>
+<td style="text-align:left;">CS-190</td>
+<td style="text-align:left;">2</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">A</td>
+</tr>
+<tr><td style="text-align:left;">12345</td>
+<td style="text-align:left;">Shankar</td>
+<td style="text-align:left;">Comp. Sci.</td>
+<td style="text-align:left;">32</td>
+<td style="text-align:left;">12345</td>
+<td style="text-align:left;">CS-315</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">A</td>
+</tr>
+<tr><td style="text-align:left;">12345</td>
+<td style="text-align:left;">Shankar</td>
+<td style="text-align:left;">Comp. Sci.</td>
+<td style="text-align:left;">32</td>
+<td style="text-align:left;">12345</td>
+<td style="text-align:left;">CS-347</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">A</td>
+</tr>
+<tr><td style="text-align:left;">76543</td>
+<td style="text-align:left;">Brown</td>
+<td style="text-align:left;">Comp. Sci.</td>
+<td style="text-align:left;">58</td>
+<td style="text-align:left;">76543</td>
+<td style="text-align:left;">CS-101</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">A</td>
+</tr>
+<tr><td style="text-align:left;">76543</td>
+<td style="text-align:left;">Brown</td>
+<td style="text-align:left;">Comp. Sci.</td>
+<td style="text-align:left;">58</td>
+<td style="text-align:left;">76543</td>
+<td style="text-align:left;">CS-319</td>
+<td style="text-align:left;">2</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">A</td>
+</tr>
+<tr><td style="text-align:left;">98988</td>
+<td style="text-align:left;">Tanaka</td>
+<td style="text-align:left;">Biology</td>
+<td style="text-align:left;">120</td>
+<td style="text-align:left;">98988</td>
+<td style="text-align:left;">BIO-101</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Summer</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">A</td>
+</tr>
+<tr><td style="text-align:left;">00128</td>
+<td style="text-align:left;">Zhang</td>
+<td style="text-align:left;">Comp. Sci.</td>
+<td style="text-align:left;">102</td>
+<td style="text-align:left;">00128</td>
+<td style="text-align:left;">CS-347</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">A-</td>
+</tr>
+<tr><td style="text-align:left;">54321</td>
+<td style="text-align:left;">Williams</td>
+<td style="text-align:left;">Comp. Sci.</td>
+<td style="text-align:left;">54</td>
+<td style="text-align:left;">54321</td>
+<td style="text-align:left;">CS-101</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">A-</td>
+</tr>
+<tr><td style="text-align:left;">55739</td>
+<td style="text-align:left;">Sanchez</td>
+<td style="text-align:left;">Music</td>
+<td style="text-align:left;">38</td>
+<td style="text-align:left;">55739</td>
+<td style="text-align:left;">MU-199</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">A-</td>
+</tr>
+<tr><td style="text-align:left;">19991</td>
+<td style="text-align:left;">Brandt</td>
+<td style="text-align:left;">History</td>
+<td style="text-align:left;">80</td>
+<td style="text-align:left;">19991</td>
+<td style="text-align:left;">HIS-351</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">B</td>
+</tr>
+<tr><td style="text-align:left;">45678</td>
+<td style="text-align:left;">Levy</td>
+<td style="text-align:left;">Physics</td>
+<td style="text-align:left;">46</td>
+<td style="text-align:left;">45678</td>
+<td style="text-align:left;">CS-319</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">B</td>
+</tr>
+<tr><td style="text-align:left;">98765</td>
+<td style="text-align:left;">Bourikas</td>
+<td style="text-align:left;">Elec. Eng.</td>
+<td style="text-align:left;">98</td>
+<td style="text-align:left;">98765</td>
+<td style="text-align:left;">CS-315</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">B</td>
+</tr>
+<tr><td style="text-align:left;">44553</td>
+<td style="text-align:left;">Peltier</td>
+<td style="text-align:left;">Physics</td>
+<td style="text-align:left;">56</td>
+<td style="text-align:left;">44553</td>
+<td style="text-align:left;">PHY-101</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">B-</td>
+</tr>
+<tr><td style="text-align:left;">45678</td>
+<td style="text-align:left;">Levy</td>
+<td style="text-align:left;">Physics</td>
+<td style="text-align:left;">46</td>
+<td style="text-align:left;">45678</td>
+<td style="text-align:left;">CS-101</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">B+</td>
+</tr>
+<tr><td style="text-align:left;">54321</td>
+<td style="text-align:left;">Williams</td>
+<td style="text-align:left;">Comp. Sci.</td>
+<td style="text-align:left;">54</td>
+<td style="text-align:left;">54321</td>
+<td style="text-align:left;">CS-190</td>
+<td style="text-align:left;">2</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">B+</td>
+</tr>
+<tr><td style="text-align:left;">12345</td>
+<td style="text-align:left;">Shankar</td>
+<td style="text-align:left;">Comp. Sci.</td>
+<td style="text-align:left;">32</td>
+<td style="text-align:left;">12345</td>
+<td style="text-align:left;">CS-101</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">C</td>
+</tr>
+<tr><td style="text-align:left;">76653</td>
+<td style="text-align:left;">Aoi</td>
+<td style="text-align:left;">Elec. Eng.</td>
+<td style="text-align:left;">60</td>
+<td style="text-align:left;">76653</td>
+<td style="text-align:left;">EE-181</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">C</td>
+</tr>
+<tr><td style="text-align:left;">98765</td>
+<td style="text-align:left;">Bourikas</td>
+<td style="text-align:left;">Elec. Eng.</td>
+<td style="text-align:left;">98</td>
+<td style="text-align:left;">98765</td>
+<td style="text-align:left;">CS-101</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">C-</td>
+</tr>
+<tr><td style="text-align:left;">23121</td>
+<td style="text-align:left;">Chavez</td>
+<td style="text-align:left;">Finance</td>
+<td style="text-align:left;">110</td>
+<td style="text-align:left;">23121</td>
+<td style="text-align:left;">FIN-201</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">C+</td>
+</tr>
+<tr><td style="text-align:left;">45678</td>
+<td style="text-align:left;">Levy</td>
+<td style="text-align:left;">Physics</td>
+<td style="text-align:left;">46</td>
+<td style="text-align:left;">45678</td>
+<td style="text-align:left;">CS-101</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">F</td>
+</tr>
+</table>
+<h3>Chap 3, slide 11. Equivalent to the query example above.</h3>
+<table id="table-Chap-3,-slide-11.-Equivalent-to-the-query-example-above." style="width:100%"><th><a href="javascript:sortTable('table-Chap-3,-slide-11.-Equivalent-to-the-query-example-above.', 0, 'S')"">ID</a>
+</th>
+<th><a href="javascript:sortTable('table-Chap-3,-slide-11.-Equivalent-to-the-query-example-above.', 1, 'S')"">name</a>
+</th>
+<th><a href="javascript:sortTable('table-Chap-3,-slide-11.-Equivalent-to-the-query-example-above.', 2, 'S')"">dept_name</a>
+</th>
+<th><a href="javascript:sortTable('table-Chap-3,-slide-11.-Equivalent-to-the-query-example-above.', 3, 'S')"">tot_cred</a>
+</th>
+<th><a href="javascript:sortTable('table-Chap-3,-slide-11.-Equivalent-to-the-query-example-above.', 4, 'S')"">ID</a>
+</th>
+<th><a href="javascript:sortTable('table-Chap-3,-slide-11.-Equivalent-to-the-query-example-above.', 5, 'S')"">course_id</a>
+</th>
+<th><a href="javascript:sortTable('table-Chap-3,-slide-11.-Equivalent-to-the-query-example-above.', 6, 'S')"">sec_id</a>
+</th>
+<th><a href="javascript:sortTable('table-Chap-3,-slide-11.-Equivalent-to-the-query-example-above.', 7, 'S')"">semester</a>
+</th>
+<th><a href="javascript:sortTable('table-Chap-3,-slide-11.-Equivalent-to-the-query-example-above.', 8, 'S')"">year</a>
+</th>
+<th><a href="javascript:sortTable('table-Chap-3,-slide-11.-Equivalent-to-the-query-example-above.', 9, 'S')"">grade</a>
+</th>
+<tr><td style="text-align:left;">98988</td>
+<td style="text-align:left;">Tanaka</td>
+<td style="text-align:left;">Biology</td>
+<td style="text-align:left;">120</td>
+<td style="text-align:left;">98988</td>
+<td style="text-align:left;">BIO-301</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Summer</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">None</td>
+</tr>
+<tr><td style="text-align:left;">00128</td>
+<td style="text-align:left;">Zhang</td>
+<td style="text-align:left;">Comp. Sci.</td>
+<td style="text-align:left;">102</td>
+<td style="text-align:left;">00128</td>
+<td style="text-align:left;">CS-101</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">A</td>
+</tr>
+<tr><td style="text-align:left;">12345</td>
+<td style="text-align:left;">Shankar</td>
+<td style="text-align:left;">Comp. Sci.</td>
+<td style="text-align:left;">32</td>
+<td style="text-align:left;">12345</td>
+<td style="text-align:left;">CS-190</td>
+<td style="text-align:left;">2</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">A</td>
+</tr>
+<tr><td style="text-align:left;">12345</td>
+<td style="text-align:left;">Shankar</td>
+<td style="text-align:left;">Comp. Sci.</td>
+<td style="text-align:left;">32</td>
+<td style="text-align:left;">12345</td>
+<td style="text-align:left;">CS-315</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">A</td>
+</tr>
+<tr><td style="text-align:left;">12345</td>
+<td style="text-align:left;">Shankar</td>
+<td style="text-align:left;">Comp. Sci.</td>
+<td style="text-align:left;">32</td>
+<td style="text-align:left;">12345</td>
+<td style="text-align:left;">CS-347</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">A</td>
+</tr>
+<tr><td style="text-align:left;">76543</td>
+<td style="text-align:left;">Brown</td>
+<td style="text-align:left;">Comp. Sci.</td>
+<td style="text-align:left;">58</td>
+<td style="text-align:left;">76543</td>
+<td style="text-align:left;">CS-101</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">A</td>
+</tr>
+<tr><td style="text-align:left;">76543</td>
+<td style="text-align:left;">Brown</td>
+<td style="text-align:left;">Comp. Sci.</td>
+<td style="text-align:left;">58</td>
+<td style="text-align:left;">76543</td>
+<td style="text-align:left;">CS-319</td>
+<td style="text-align:left;">2</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">A</td>
+</tr>
+<tr><td style="text-align:left;">98988</td>
+<td style="text-align:left;">Tanaka</td>
+<td style="text-align:left;">Biology</td>
+<td style="text-align:left;">120</td>
+<td style="text-align:left;">98988</td>
+<td style="text-align:left;">BIO-101</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Summer</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">A</td>
+</tr>
+<tr><td style="text-align:left;">00128</td>
+<td style="text-align:left;">Zhang</td>
+<td style="text-align:left;">Comp. Sci.</td>
+<td style="text-align:left;">102</td>
+<td style="text-align:left;">00128</td>
+<td style="text-align:left;">CS-347</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">A-</td>
+</tr>
+<tr><td style="text-align:left;">54321</td>
+<td style="text-align:left;">Williams</td>
+<td style="text-align:left;">Comp. Sci.</td>
+<td style="text-align:left;">54</td>
+<td style="text-align:left;">54321</td>
+<td style="text-align:left;">CS-101</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">A-</td>
+</tr>
+<tr><td style="text-align:left;">55739</td>
+<td style="text-align:left;">Sanchez</td>
+<td style="text-align:left;">Music</td>
+<td style="text-align:left;">38</td>
+<td style="text-align:left;">55739</td>
+<td style="text-align:left;">MU-199</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">A-</td>
+</tr>
+<tr><td style="text-align:left;">19991</td>
+<td style="text-align:left;">Brandt</td>
+<td style="text-align:left;">History</td>
+<td style="text-align:left;">80</td>
+<td style="text-align:left;">19991</td>
+<td style="text-align:left;">HIS-351</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">B</td>
+</tr>
+<tr><td style="text-align:left;">45678</td>
+<td style="text-align:left;">Levy</td>
+<td style="text-align:left;">Physics</td>
+<td style="text-align:left;">46</td>
+<td style="text-align:left;">45678</td>
+<td style="text-align:left;">CS-319</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">B</td>
+</tr>
+<tr><td style="text-align:left;">98765</td>
+<td style="text-align:left;">Bourikas</td>
+<td style="text-align:left;">Elec. Eng.</td>
+<td style="text-align:left;">98</td>
+<td style="text-align:left;">98765</td>
+<td style="text-align:left;">CS-315</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">B</td>
+</tr>
+<tr><td style="text-align:left;">44553</td>
+<td style="text-align:left;">Peltier</td>
+<td style="text-align:left;">Physics</td>
+<td style="text-align:left;">56</td>
+<td style="text-align:left;">44553</td>
+<td style="text-align:left;">PHY-101</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">B-</td>
+</tr>
+<tr><td style="text-align:left;">45678</td>
+<td style="text-align:left;">Levy</td>
+<td style="text-align:left;">Physics</td>
+<td style="text-align:left;">46</td>
+<td style="text-align:left;">45678</td>
+<td style="text-align:left;">CS-101</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">B+</td>
+</tr>
+<tr><td style="text-align:left;">54321</td>
+<td style="text-align:left;">Williams</td>
+<td style="text-align:left;">Comp. Sci.</td>
+<td style="text-align:left;">54</td>
+<td style="text-align:left;">54321</td>
+<td style="text-align:left;">CS-190</td>
+<td style="text-align:left;">2</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">B+</td>
+</tr>
+<tr><td style="text-align:left;">12345</td>
+<td style="text-align:left;">Shankar</td>
+<td style="text-align:left;">Comp. Sci.</td>
+<td style="text-align:left;">32</td>
+<td style="text-align:left;">12345</td>
+<td style="text-align:left;">CS-101</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">C</td>
+</tr>
+<tr><td style="text-align:left;">76653</td>
+<td style="text-align:left;">Aoi</td>
+<td style="text-align:left;">Elec. Eng.</td>
+<td style="text-align:left;">60</td>
+<td style="text-align:left;">76653</td>
+<td style="text-align:left;">EE-181</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">C</td>
+</tr>
+<tr><td style="text-align:left;">98765</td>
+<td style="text-align:left;">Bourikas</td>
+<td style="text-align:left;">Elec. Eng.</td>
+<td style="text-align:left;">98</td>
+<td style="text-align:left;">98765</td>
+<td style="text-align:left;">CS-101</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">C-</td>
+</tr>
+<tr><td style="text-align:left;">23121</td>
+<td style="text-align:left;">Chavez</td>
+<td style="text-align:left;">Finance</td>
+<td style="text-align:left;">110</td>
+<td style="text-align:left;">23121</td>
+<td style="text-align:left;">FIN-201</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Spring</td>
+<td style="text-align:left;">2018</td>
+<td style="text-align:left;">C+</td>
+</tr>
+<tr><td style="text-align:left;">45678</td>
+<td style="text-align:left;">Levy</td>
+<td style="text-align:left;">Physics</td>
+<td style="text-align:left;">46</td>
+<td style="text-align:left;">45678</td>
+<td style="text-align:left;">CS-101</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">Fall</td>
+<td style="text-align:left;">2017</td>
+<td style="text-align:left;">F</td>
+</tr>
+</table>
+<h3>Chap 3, slide 19</h3>
+<table id="table-Chap-3,-slide-19" style="width:100%"><th><a href="javascript:sortTable('table-Chap-3,-slide-19', 0, 'S')"">course_id</a>
+</th>
+<th><a href="javascript:sortTable('table-Chap-3,-slide-19', 1, 'S')"">prereq_id</a>
+</th>
+<th><a href="javascript:sortTable('table-Chap-3,-slide-19', 2, 'S')"">title</a>
+</th>
+<th><a href="javascript:sortTable('table-Chap-3,-slide-19', 3, 'S')"">dept_name</a>
+</th>
+<th><a href="javascript:sortTable('table-Chap-3,-slide-19', 4, 'S')"">credits</a>
+</th>
+<tr><td style="text-align:left;">BIO-301</td>
+<td style="text-align:left;">BIO-101</td>
+<td style="text-align:left;">Genetics</td>
+<td style="text-align:left;">Biology</td>
+<td style="text-align:left;">4</td>
+</tr>
+<tr><td style="text-align:left;">BIO-399</td>
+<td style="text-align:left;">BIO-101</td>
+<td style="text-align:left;">Computational Biology</td>
+<td style="text-align:left;">Biology</td>
+<td style="text-align:left;">3</td>
+</tr>
+<tr><td style="text-align:left;">CS-190</td>
+<td style="text-align:left;">CS-101</td>
+<td style="text-align:left;">Game Design</td>
+<td style="text-align:left;">Comp. Sci.</td>
+<td style="text-align:left;">4</td>
+</tr>
+<tr><td style="text-align:left;">CS-315</td>
+<td style="text-align:left;">CS-101</td>
+<td style="text-align:left;">Robotics</td>
+<td style="text-align:left;">Comp. Sci.</td>
+<td style="text-align:left;">3</td>
+</tr>
+<tr><td style="text-align:left;">CS-319</td>
+<td style="text-align:left;">CS-101</td>
+<td style="text-align:left;">Image Processing</td>
+<td style="text-align:left;">Comp. Sci.</td>
+<td style="text-align:left;">3</td>
+</tr>
+<tr><td style="text-align:left;">CS-347</td>
+<td style="text-align:left;">CS-101</td>
+<td style="text-align:left;">Database System Concepts</td>
+<td style="text-align:left;">Comp. Sci.</td>
+<td style="text-align:left;">3</td>
+</tr>
+<tr><td style="text-align:left;">EE-181</td>
+<td style="text-align:left;">PHY-101</td>
+<td style="text-align:left;">Intro. to Digital Systems</td>
+<td style="text-align:left;">Elec. Eng.</td>
+<td style="text-align:left;">3</td>
+</tr>
+</table>
+<h3>Chap 3, slide 19</h3>
+<table id="table-Chap-3,-slide-19" style="width:100%"><th><a href="javascript:sortTable('table-Chap-3,-slide-19', 0, 'S')"">course_id</a>
+</th>
+<th><a href="javascript:sortTable('table-Chap-3,-slide-19', 1, 'S')"">title</a>
+</th>
+<th><a href="javascript:sortTable('table-Chap-3,-slide-19', 2, 'S')"">dept_name</a>
+</th>
+<th><a href="javascript:sortTable('table-Chap-3,-slide-19', 3, 'S')"">credits</a>
+</th>
+<th><a href="javascript:sortTable('table-Chap-3,-slide-19', 4, 'S')"">prereq_id</a>
+</th>
+<tr><td style="text-align:left;">BIO-301</td>
+<td style="text-align:left;">Genetics</td>
+<td style="text-align:left;">Biology</td>
+<td style="text-align:left;">4</td>
+<td style="text-align:left;">BIO-101</td>
+</tr>
+<tr><td style="text-align:left;">BIO-399</td>
+<td style="text-align:left;">Computational Biology</td>
+<td style="text-align:left;">Biology</td>
+<td style="text-align:left;">3</td>
+<td style="text-align:left;">BIO-101</td>
+</tr>
+<tr><td style="text-align:left;">CS-190</td>
+<td style="text-align:left;">Game Design</td>
+<td style="text-align:left;">Comp. Sci.</td>
+<td style="text-align:left;">4</td>
+<td style="text-align:left;">CS-101</td>
+</tr>
+<tr><td style="text-align:left;">CS-315</td>
+<td style="text-align:left;">Robotics</td>
+<td style="text-align:left;">Comp. Sci.</td>
+<td style="text-align:left;">3</td>
+<td style="text-align:left;">CS-101</td>
+</tr>
+<tr><td style="text-align:left;">CS-319</td>
+<td style="text-align:left;">Image Processing</td>
+<td style="text-align:left;">Comp. Sci.</td>
+<td style="text-align:left;">3</td>
+<td style="text-align:left;">CS-101</td>
+</tr>
+<tr><td style="text-align:left;">CS-347</td>
+<td style="text-align:left;">Database System Concepts</td>
+<td style="text-align:left;">Comp. Sci.</td>
+<td style="text-align:left;">3</td>
+<td style="text-align:left;">CS-101</td>
+</tr>
+<tr><td style="text-align:left;">EE-181</td>
+<td style="text-align:left;">Intro. to Digital Systems</td>
+<td style="text-align:left;">Elec. Eng.</td>
+<td style="text-align:left;">3</td>
+<td style="text-align:left;">PHY-101</td>
+</tr>
+</table>
+<h3>Homework Query #1: Retrieve all courses that have the letters a, e, i in THAT order in their names</h3>
+<table id="table-Homework-Query-#1:-Retrieve-all-courses-that-have-the-letters-a,-e,-i-in-THAT-order-in-their-names" style="width:100%"><th><a href="javascript:sortTable('table-Homework-Query-#1:-Retrieve-all-courses-that-have-the-letters-a,-e,-i-in-THAT-order-in-their-names', 0, 'S')"">course_id</a>
+</th>
+<th><a href="javascript:sortTable('table-Homework-Query-#1:-Retrieve-all-courses-that-have-the-letters-a,-e,-i-in-THAT-order-in-their-names', 1, 'S')"">title</a>
+</th>
+<th><a href="javascript:sortTable('table-Homework-Query-#1:-Retrieve-all-courses-that-have-the-letters-a,-e,-i-in-THAT-order-in-their-names', 2, 'S')"">dept_name</a>
+</th>
+<th><a href="javascript:sortTable('table-Homework-Query-#1:-Retrieve-all-courses-that-have-the-letters-a,-e,-i-in-THAT-order-in-their-names', 3, 'S')"">credits</a>
+</th>
+<tr><td style="text-align:left;">CS-190</td>
+<td style="text-align:left;">Game Design</td>
+<td style="text-align:left;">Comp. Sci.</td>
+<td style="text-align:left;">4</td>
+</tr>
+<tr><td style="text-align:left;">CS-319</td>
+<td style="text-align:left;">Image Processing</td>
+<td style="text-align:left;">Comp. Sci.</td>
+<td style="text-align:left;">3</td>
+</tr>
+</table>
+<h3>Homework Query #2: Retrieve all courses that have the letters a, e, i in ANY order in their names</h3>
+<table id="table-Homework-Query-#2:-Retrieve-all-courses-that-have-the-letters-a,-e,-i-in-ANY-order-in-their-names" style="width:100%"><th><a href="javascript:sortTable('table-Homework-Query-#2:-Retrieve-all-courses-that-have-the-letters-a,-e,-i-in-ANY-order-in-their-names', 0, 'S')"">course_id</a>
+</th>
+<th><a href="javascript:sortTable('table-Homework-Query-#2:-Retrieve-all-courses-that-have-the-letters-a,-e,-i-in-ANY-order-in-their-names', 1, 'S')"">title</a>
+</th>
+<th><a href="javascript:sortTable('table-Homework-Query-#2:-Retrieve-all-courses-that-have-the-letters-a,-e,-i-in-ANY-order-in-their-names', 2, 'S')"">dept_name</a>
+</th>
+<th><a href="javascript:sortTable('table-Homework-Query-#2:-Retrieve-all-courses-that-have-the-letters-a,-e,-i-in-ANY-order-in-their-names', 3, 'S')"">credits</a>
+</th>
+<tr><td style="text-align:left;">CS-190</td>
+<td style="text-align:left;">Game Design</td>
+<td style="text-align:left;">Comp. Sci.</td>
+<td style="text-align:left;">4</td>
+</tr>
+<tr><td style="text-align:left;">CS-319</td>
+<td style="text-align:left;">Image Processing</td>
+<td style="text-align:left;">Comp. Sci.</td>
+<td style="text-align:left;">3</td>
+</tr>
+<tr><td style="text-align:left;">EE-181</td>
+<td style="text-align:left;">Intro. to Digital Systems</td>
+<td style="text-align:left;">Elec. Eng.</td>
+<td style="text-align:left;">3</td>
+</tr>
+<tr><td style="text-align:left;">FIN-201</td>
+<td style="text-align:left;">Investment Banking</td>
+<td style="text-align:left;">Finance</td>
+<td style="text-align:left;">3</td>
+</tr>
+<tr><td style="text-align:left;">PHY-101</td>
+<td style="text-align:left;">Physical Principles</td>
+<td style="text-align:left;">Physics</td>
+<td style="text-align:left;">4</td>
+</tr>
+</table>
+<h3>Homework Query #3: Retrieve the names of all students who failed a course (grade of F) along with the
+   name of the course that they failed.</h3>
+<table id="table-Homework-Query-#3:-Retrieve-the-names-of-all-students-who-failed-a-course-(grade-of-F)-along-with-the
+---name-of-the-course-that-they-failed." style="width:100%"><th><a href="javascript:sortTable('table-Homework-Query-#3:-Retrieve-the-names-of-all-students-who-failed-a-course-(grade-of-F)-along-with-the
+---name-of-the-course-that-they-failed.', 0, 'S')"">name</a>
+</th>
+<th><a href="javascript:sortTable('table-Homework-Query-#3:-Retrieve-the-names-of-all-students-who-failed-a-course-(grade-of-F)-along-with-the
+---name-of-the-course-that-they-failed.', 1, 'S')"">title</a>
+</th>
+<tr><td style="text-align:left;">Levy</td>
+<td style="text-align:left;">Intro. to Computer Science</td>
+</tr>
+</table>
+<h3>Homework Query #4: Retrieve the percentage of solid A grades compared to all courses,
+   and rename that column "Percent_A"</h3>
+<table id="table-Homework-Query-#4:-Retrieve-the-percentage-of-solid-A-grades-compared-to-all-courses,
+---and-rename-that-column-"Percent_A"" style="width:100%"><th><a href="javascript:sortTable('table-Homework-Query-#4:-Retrieve-the-percentage-of-solid-A-grades-compared-to-all-courses,
+---and-rename-that-column-"Percent_A"', 0, 'S')"">Percent_A</a>
+</th>
+<tr><td style="text-align:left;">31.81818</td>
+</tr>
+</table>
+<h3>Homework Query #5: Retrieve the names and numbers of all courses that do not have prerequisites.</h3>
+<table id="table-Homework-Query-#5:-Retrieve-the-names-and-numbers-of-all-courses-that-do-not-have-prerequisites." style="width:100%"><th><a href="javascript:sortTable('table-Homework-Query-#5:-Retrieve-the-names-and-numbers-of-all-courses-that-do-not-have-prerequisites.', 0, 'S')"">COURSE</a>
+</th>
+<th><a href="javascript:sortTable('table-Homework-Query-#5:-Retrieve-the-names-and-numbers-of-all-courses-that-do-not-have-prerequisites.', 1, 'S')"">COURSE NUMBER</a>
+</th>
+<tr><td style="text-align:left;">Intro. to Biology</td>
+<td style="text-align:left;">BIO-101</td>
+</tr>
+<tr><td style="text-align:left;">Intro. to Computer Science</td>
+<td style="text-align:left;">CS-101</td>
+</tr>
+<tr><td style="text-align:left;">Investment Banking</td>
+<td style="text-align:left;">FIN-201</td>
+</tr>
+<tr><td style="text-align:left;">World History</td>
+<td style="text-align:left;">HIS-351</td>
+</tr>
+<tr><td style="text-align:left;">Music Video Production</td>
+<td style="text-align:left;">MU-199</td>
+</tr>
+<tr><td style="text-align:left;">Physical Principles</td>
+<td style="text-align:left;">PHY-101</td>
+</tr>
+</table>
+<h3>Homework Query #6: Retrieves the names of all students and their advisors if they have one.</h3>
+<table id="table-Homework-Query-#6:-Retrieves-the-names-of-all-students-and-their-advisors-if-they-have-one." style="width:100%"><th><a href="javascript:sortTable('table-Homework-Query-#6:-Retrieves-the-names-of-all-students-and-their-advisors-if-they-have-one.', 0, 'S')"">Student</a>
+</th>
+<th><a href="javascript:sortTable('table-Homework-Query-#6:-Retrieves-the-names-of-all-students-and-their-advisors-if-they-have-one.', 1, 'S')"">Advisor</a>
+</th>
+<tr><td style="text-align:left;">Zhang</td>
+<td style="text-align:left;">Katz</td>
+</tr>
+<tr><td style="text-align:left;">Shankar</td>
+<td style="text-align:left;">Srinivasan</td>
+</tr>
+<tr><td style="text-align:left;">Brandt</td>
+<td style="text-align:left;">None</td>
+</tr>
+<tr><td style="text-align:left;">Chavez</td>
+<td style="text-align:left;">Singh</td>
+</tr>
+<tr><td style="text-align:left;">Peltier</td>
+<td style="text-align:left;">Einstein</td>
+</tr>
+<tr><td style="text-align:left;">Levy</td>
+<td style="text-align:left;">Einstein</td>
+</tr>
+<tr><td style="text-align:left;">Williams</td>
+<td style="text-align:left;">None</td>
+</tr>
+<tr><td style="text-align:left;">Sanchez</td>
+<td style="text-align:left;">None</td>
+</tr>
+<tr><td style="text-align:left;">Snow</td>
+<td style="text-align:left;">None</td>
+</tr>
+<tr><td style="text-align:left;">Brown</td>
+<td style="text-align:left;">Katz</td>
+</tr>
+<tr><td style="text-align:left;">Aoi</td>
+<td style="text-align:left;">Kim</td>
+</tr>
+<tr><td style="text-align:left;">Bourikas</td>
+<td style="text-align:left;">Kim</td>
+</tr>
+<tr><td style="text-align:left;">Tanaka</td>
+<td style="text-align:left;">Crick</td>
+</tr>
+</table>
+<center><h6>&copy;2024 by Developer • Generated on Jan. 20, 2024 22:57 PM</h6>
+</center>
+</body>
+</html>

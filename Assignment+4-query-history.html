@@ -1,0 +1,187 @@
+<html><head><meta name="description" content="OutputUtil developed by LT. Executed by C:\Users\derek\PycharmProjects\pythonProject1">
+<style>body {
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1 {
+    color: darkgray;
+    text-align: center;
+}
+h3 {
+    color: darkgray;
+}
+.vericaltext {
+ writing-mode: vertical-lr;
+ text-orientation: upright;
+}
+
+table, th, td {
+    border: 1px solid;
+    text-align: center;
+    vertical-align: top
+}
+th > a {
+    color: white;
+}
+th {
+    background-color: darkgray;
+    color: white;
+}
+tr:nth-child(even) {
+    background-color: gray;
+}
+tr:nth-child(odd) {
+    background-color: lightgray;
+}</style>
+<script>
+function sortTable(tableId, colNum, colType) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchCount = 0;
+  table = document.getElementById(tableId);
+  switching = true;
+  dir = "asc";
+  while (switching) {
+    switching = false;
+    rows = table.rows;
+    for (i = 1; i < (rows.length - 1); i++) {
+      shouldSwitch = false;
+      x = rows[i].getElementsByTagName("td")[colNum];
+      y = rows[i + 1].getElementsByTagName("td")[colNum];
+      if (colType == 'N') { 
+        if (((dir == "asc") && (Number(x.innerHTML) > Number(y.innerHTML))) ||
+            ((dir == "desc") && (Number(x.innerHTML) < Number(y.innerHTML)))) {
+          shouldSwitch = true;
+          break;
+        }
+      } else {
+        if (((dir == "asc") && (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase())) ||
+            ((dir == "desc") && (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()))) {
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      switchCount ++;
+    } else {
+     if (switchCount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+</script>
+</head>
+<body><h1>All queries for assignments to date:</h1>
+<h3>Table of Contents</h3>
+<ol><li><a href="#table-Retrieve-all-queries-executed-for-{assignment}">Retrieve all queries executed for {assignment}</a>
+</li>
+<li><a href="#table-Retrieve-all-queries-executed-for-{assignment}">Retrieve all queries executed for {assignment}</a>
+</li>
+</ol>
+<h3>Retrieve all queries executed for {assignment}</h3>
+<table id="table-Retrieve-all-queries-executed-for-{assignment}" style="width:100%"><th><a href="javascript:sortTable('table-Retrieve-all-queries-executed-for-{assignment}', 0, 'S')"">query_id</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-queries-executed-for-{assignment}', 1, 'S')"">query_text</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-queries-executed-for-{assignment}', 2, 'S')"">query_desc</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-queries-executed-for-{assignment}', 3, 'S')"">query_db</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-queries-executed-for-{assignment}', 4, 'S')"">query_rows</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-queries-executed-for-{assignment}', 5, 'S')"">query_user</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-queries-executed-for-{assignment}', 6, 'S')"">query_assn</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-queries-executed-for-{assignment}', 7, 'S')"">query_dur</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-queries-executed-for-{assignment}', 8, 'S')"">query_ended</a>
+</th>
+<tr><td style="text-align:left;"></td>
+<td style="text-align:left;"></td>
+<td style="text-align:left;"></td>
+<td style="text-align:left;"></td>
+<td style="text-align:left;"></td>
+<td style="text-align:left;"></td>
+<td style="text-align:left;"></td>
+<td style="text-align:left;"></td>
+<td style="text-align:left;"></td>
+</tr>
+</table>
+<h3>Retrieve all queries executed for {assignment}</h3>
+<table id="table-Retrieve-all-queries-executed-for-{assignment}" style="width:100%"><th><a href="javascript:sortTable('table-Retrieve-all-queries-executed-for-{assignment}', 0, 'S')"">query_id</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-queries-executed-for-{assignment}', 1, 'S')"">query_text</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-queries-executed-for-{assignment}', 2, 'S')"">query_desc</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-queries-executed-for-{assignment}', 3, 'S')"">query_db</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-queries-executed-for-{assignment}', 4, 'S')"">query_rows</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-queries-executed-for-{assignment}', 5, 'S')"">query_user</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-queries-executed-for-{assignment}', 6, 'S')"">query_assn</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-queries-executed-for-{assignment}', 7, 'S')"">query_dur</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-queries-executed-for-{assignment}', 8, 'S')"">query_ended</a>
+</th>
+<tr><td style="text-align:left;">105</td>
+<td style="text-align:left;">SELECT * FROM query WHERE query_assn = 'Assignment + 3'</td>
+<td style="text-align:left;">Retrieve all queries executed for {assignment}</td>
+<td style="text-align:left;">udb</td>
+<td style="text-align:left;">0</td>
+<td style="text-align:left;">yede7188</td>
+<td style="text-align:left;">Assignment + 4</td>
+<td style="text-align:left;">0.0298</td>
+<td style="text-align:left;">2024-01-05 10:28:00</td>
+</tr>
+<tr><td style="text-align:left;">106</td>
+<td style="text-align:left;">SELECT * FROM query WHERE query_assn = 'Assignment + 4'</td>
+<td style="text-align:left;">Retrieve all queries executed for {assignment}</td>
+<td style="text-align:left;">udb</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">yede7188</td>
+<td style="text-align:left;">Assignment + 4</td>
+<td style="text-align:left;">0.0175</td>
+<td style="text-align:left;">2024-01-05 10:28:01</td>
+</tr>
+<tr><td style="text-align:left;">113</td>
+<td style="text-align:left;">SELECT * FROM query WHERE query_assn = 'Assignment + 3'</td>
+<td style="text-align:left;">Retrieve all queries executed for {assignment}</td>
+<td style="text-align:left;">udb</td>
+<td style="text-align:left;">0</td>
+<td style="text-align:left;">yede7188</td>
+<td style="text-align:left;">Assignment + 4</td>
+<td style="text-align:left;">0.0021</td>
+<td style="text-align:left;">2024-01-05 10:30:38</td>
+</tr>
+<tr><td style="text-align:left;">114</td>
+<td style="text-align:left;">SELECT * FROM query WHERE query_assn = 'Assignment + 4'</td>
+<td style="text-align:left;">Retrieve all queries executed for {assignment}</td>
+<td style="text-align:left;">udb</td>
+<td style="text-align:left;">3</td>
+<td style="text-align:left;">yede7188</td>
+<td style="text-align:left;">Assignment + 4</td>
+<td style="text-align:left;">0.0050</td>
+<td style="text-align:left;">2024-01-05 10:30:38</td>
+</tr>
+<tr><td style="text-align:left;">121</td>
+<td style="text-align:left;">SELECT * FROM query WHERE query_assn = 'Assignment + 3'</td>
+<td style="text-align:left;">Retrieve all queries executed for {assignment}</td>
+<td style="text-align:left;">udb</td>
+<td style="text-align:left;">0</td>
+<td style="text-align:left;">yede7188</td>
+<td style="text-align:left;">Assignment + 4</td>
+<td style="text-align:left;">0.0044</td>
+<td style="text-align:left;">2024-01-05 10:33:03</td>
+</tr>
+</table>
+<center><h6>&copy;2024 by Developer • Generated on Jan. 05, 2024 10:33 AM</h6>
+</center>
+</body>
+</html>

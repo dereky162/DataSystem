@@ -1,0 +1,1434 @@
+<html><head><meta name="description" content="OutputUtil developed by LT. Executed by C:\Users\derek\PycharmProjects\pythonProject1">
+<style>body {
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1 {
+    color: darkgray;
+    text-align: center;
+}
+h3 {
+    color: darkgray;
+}
+.vericaltext {
+ writing-mode: vertical-lr;
+ text-orientation: upright;
+}
+
+table, th, td {
+    border: 1px solid;
+    text-align: center;
+    vertical-align: top
+}
+th > a {
+    color: white;
+}
+th {
+    background-color: darkgray;
+    color: white;
+}
+tr:nth-child(even) {
+    background-color: gray;
+}
+tr:nth-child(odd) {
+    background-color: lightgray;
+}</style>
+<script>
+function sortTable(tableId, colNum, colType) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchCount = 0;
+  table = document.getElementById(tableId);
+  switching = true;
+  dir = "asc";
+  while (switching) {
+    switching = false;
+    rows = table.rows;
+    for (i = 1; i < (rows.length - 1); i++) {
+      shouldSwitch = false;
+      x = rows[i].getElementsByTagName("td")[colNum];
+      y = rows[i + 1].getElementsByTagName("td")[colNum];
+      if (colType == 'N') { 
+        if (((dir == "asc") && (Number(x.innerHTML) > Number(y.innerHTML))) ||
+            ((dir == "desc") && (Number(x.innerHTML) < Number(y.innerHTML)))) {
+          shouldSwitch = true;
+          break;
+        }
+      } else {
+        if (((dir == "asc") && (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase())) ||
+            ((dir == "desc") && (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()))) {
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      switchCount ++;
+    } else {
+     if (switchCount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+</script>
+</head>
+<body><h1>All queries for 'Assignment 5'</h1>
+<h3>Table of Contents</h3>
+<ol><li><a href="#table-Select-everything-from-the-new-view-v_udb_table_columns">Select everything from the new view v_udb_table_columns</a>
+</li>
+<li><a href="#table-Get-the-number-of-columns-per-table">Get the number of columns per table</a>
+</li>
+</ol>
+<h3>Select everything from the new view v_udb_table_columns</h3>
+<table id="table-Select-everything-from-the-new-view-v_udb_table_columns" style="width:100%"><th><a href="javascript:sortTable('table-Select-everything-from-the-new-view-v_udb_table_columns', 0, 'S')"">TABLE_NAME</a>
+</th>
+<th><a href="javascript:sortTable('table-Select-everything-from-the-new-view-v_udb_table_columns', 1, 'N')"">COLUMN_NUM</a>
+</th>
+<th><a href="javascript:sortTable('table-Select-everything-from-the-new-view-v_udb_table_columns', 2, 'S')"">COLUMN_NAME</a>
+</th>
+<th><a href="javascript:sortTable('table-Select-everything-from-the-new-view-v_udb_table_columns', 3, 'S')"">DATA_TYPE</a>
+</th>
+<th><a href="javascript:sortTable('table-Select-everything-from-the-new-view-v_udb_table_columns', 4, 'S')"">LENGTH</a>
+</th>
+<th><a href="javascript:sortTable('table-Select-everything-from-the-new-view-v_udb_table_columns', 5, 'S')"">nullable</a>
+</th>
+<tr><td style="text-align:left;">advisor</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">s_ID</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">5</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">advisor</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">i_ID</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">5</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">as10_author_3nf</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">author</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_author_3nf</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">nationality</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book2_1nf</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">title</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book2_1nf</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">format</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book2_1nf</td>
+<td style="text-align:right;">3</td>
+<td style="text-align:left;">author</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book2_1nf</td>
+<td style="text-align:right;">4</td>
+<td style="text-align:left;">author_nationality</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book2_1nf</td>
+<td style="text-align:right;">5</td>
+<td style="text-align:left;">price</td>
+<td style="text-align:left;">decimal</td>
+<td style="text-align:left;">8</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book2_1nf</td>
+<td style="text-align:right;">6</td>
+<td style="text-align:left;">pages</td>
+<td style="text-align:left;">int</td>
+<td style="text-align:left;">10</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book2_1nf</td>
+<td style="text-align:right;">7</td>
+<td style="text-align:left;">thickness</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book2_1nf</td>
+<td style="text-align:right;">8</td>
+<td style="text-align:left;">publisher</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book2_1nf</td>
+<td style="text-align:right;">9</td>
+<td style="text-align:left;">publisher_country</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book2_1nf</td>
+<td style="text-align:right;">10</td>
+<td style="text-align:left;">genre_id</td>
+<td style="text-align:left;">int</td>
+<td style="text-align:left;">10</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book2_1nf</td>
+<td style="text-align:right;">11</td>
+<td style="text-align:left;">genre_name</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book2_2nf</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">title</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book2_2nf</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">author</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book2_2nf</td>
+<td style="text-align:right;">3</td>
+<td style="text-align:left;">author_nationality</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book2_2nf</td>
+<td style="text-align:right;">4</td>
+<td style="text-align:left;">pages</td>
+<td style="text-align:left;">int</td>
+<td style="text-align:left;">10</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book2_2nf</td>
+<td style="text-align:right;">5</td>
+<td style="text-align:left;">thickness</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book2_2nf</td>
+<td style="text-align:right;">6</td>
+<td style="text-align:left;">publisher</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book2_2nf</td>
+<td style="text-align:right;">7</td>
+<td style="text-align:left;">publisher_country</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book2_2nf</td>
+<td style="text-align:right;">8</td>
+<td style="text-align:left;">genre_id</td>
+<td style="text-align:left;">int</td>
+<td style="text-align:left;">10</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book2_2nf</td>
+<td style="text-align:right;">9</td>
+<td style="text-align:left;">genre_name</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book_0nf</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">isbn</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book_0nf</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">title</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book_0nf</td>
+<td style="text-align:right;">3</td>
+<td style="text-align:left;">author</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book_0nf</td>
+<td style="text-align:right;">4</td>
+<td style="text-align:left;">author_nationality</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book_0nf</td>
+<td style="text-align:right;">5</td>
+<td style="text-align:left;">format</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book_0nf</td>
+<td style="text-align:right;">6</td>
+<td style="text-align:left;">price</td>
+<td style="text-align:left;">decimal</td>
+<td style="text-align:left;">8</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book_0nf</td>
+<td style="text-align:right;">7</td>
+<td style="text-align:left;">subject</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book_0nf</td>
+<td style="text-align:right;">8</td>
+<td style="text-align:left;">pages</td>
+<td style="text-align:left;">int</td>
+<td style="text-align:left;">10</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book_0nf</td>
+<td style="text-align:right;">9</td>
+<td style="text-align:left;">thickness</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book_0nf</td>
+<td style="text-align:right;">10</td>
+<td style="text-align:left;">publisher</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book_0nf</td>
+<td style="text-align:right;">11</td>
+<td style="text-align:left;">publisher_country</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book_0nf</td>
+<td style="text-align:right;">12</td>
+<td style="text-align:left;">genre_id</td>
+<td style="text-align:left;">int</td>
+<td style="text-align:left;">10</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book_0nf</td>
+<td style="text-align:right;">13</td>
+<td style="text-align:left;">genre_name</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book_1nf</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">isbn</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book_1nf</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">title</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book_1nf</td>
+<td style="text-align:right;">3</td>
+<td style="text-align:left;">author</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book_1nf</td>
+<td style="text-align:right;">4</td>
+<td style="text-align:left;">author_nationality</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book_1nf</td>
+<td style="text-align:right;">5</td>
+<td style="text-align:left;">format</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book_1nf</td>
+<td style="text-align:right;">6</td>
+<td style="text-align:left;">price</td>
+<td style="text-align:left;">decimal</td>
+<td style="text-align:left;">8</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book_1nf</td>
+<td style="text-align:right;">7</td>
+<td style="text-align:left;">pages</td>
+<td style="text-align:left;">int</td>
+<td style="text-align:left;">10</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book_1nf</td>
+<td style="text-align:right;">8</td>
+<td style="text-align:left;">thickness</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book_1nf</td>
+<td style="text-align:right;">9</td>
+<td style="text-align:left;">publisher</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book_1nf</td>
+<td style="text-align:right;">10</td>
+<td style="text-align:left;">publisher_country</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book_1nf</td>
+<td style="text-align:right;">11</td>
+<td style="text-align:left;">genre_id</td>
+<td style="text-align:left;">int</td>
+<td style="text-align:left;">10</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book_1nf</td>
+<td style="text-align:right;">12</td>
+<td style="text-align:left;">genre_name</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book_3nf</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">title</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book_3nf</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">author</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book_3nf</td>
+<td style="text-align:right;">3</td>
+<td style="text-align:left;">pages</td>
+<td style="text-align:left;">int</td>
+<td style="text-align:left;">10</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book_3nf</td>
+<td style="text-align:right;">4</td>
+<td style="text-align:left;">thickness</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book_3nf</td>
+<td style="text-align:right;">5</td>
+<td style="text-align:left;">publisher</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_book_3nf</td>
+<td style="text-align:right;">6</td>
+<td style="text-align:left;">genre_id</td>
+<td style="text-align:left;">int</td>
+<td style="text-align:left;">10</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_genre_3nf</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">genre_id</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_genre_3nf</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">name</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_price2_2nf</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">title</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_price2_2nf</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">format</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_price2_2nf</td>
+<td style="text-align:right;">3</td>
+<td style="text-align:left;">price</td>
+<td style="text-align:left;">decimal</td>
+<td style="text-align:left;">8</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_price_3nf</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">title</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_price_3nf</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">format</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_price_3nf</td>
+<td style="text-align:right;">3</td>
+<td style="text-align:left;">price</td>
+<td style="text-align:left;">decimal</td>
+<td style="text-align:left;">8</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_publisher_3nf</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">publisher</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_publisher_3nf</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">country</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_subject_1nf</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">isbn</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">as10_subject_1nf</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">subject</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">backup</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">backup_id</td>
+<td style="text-align:left;">int</td>
+<td style="text-align:left;">10</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">backup</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">relation</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">25</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">backup</td>
+<td style="text-align:right;">3</td>
+<td style="text-align:left;">num_rows</td>
+<td style="text-align:left;">int</td>
+<td style="text-align:left;">10</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">backup</td>
+<td style="text-align:right;">4</td>
+<td style="text-align:left;">num_cols</td>
+<td style="text-align:left;">int</td>
+<td style="text-align:left;">10</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">backup</td>
+<td style="text-align:right;">5</td>
+<td style="text-align:left;">csv_length</td>
+<td style="text-align:left;">int</td>
+<td style="text-align:left;">10</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">backup</td>
+<td style="text-align:right;">6</td>
+<td style="text-align:left;">xml_length</td>
+<td style="text-align:left;">int</td>
+<td style="text-align:left;">10</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">backup</td>
+<td style="text-align:right;">7</td>
+<td style="text-align:left;">json_length</td>
+<td style="text-align:left;">int</td>
+<td style="text-align:left;">10</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">backup</td>
+<td style="text-align:right;">8</td>
+<td style="text-align:left;">csv_data</td>
+<td style="text-align:left;">longtext</td>
+<td style="text-align:left;">4294967295</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">backup</td>
+<td style="text-align:right;">9</td>
+<td style="text-align:left;">xml_data</td>
+<td style="text-align:left;">longtext</td>
+<td style="text-align:left;">4294967295</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">backup</td>
+<td style="text-align:right;">10</td>
+<td style="text-align:left;">json_data</td>
+<td style="text-align:left;">json</td>
+<td style="text-align:left;">None</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">backup</td>
+<td style="text-align:right;">11</td>
+<td style="text-align:left;">dtm</td>
+<td style="text-align:left;">datetime</td>
+<td style="text-align:left;">None</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">classroom</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">building</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">15</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">classroom</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">room_number</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">7</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">classroom</td>
+<td style="text-align:right;">3</td>
+<td style="text-align:left;">capacity</td>
+<td style="text-align:left;">decimal</td>
+<td style="text-align:left;">4</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">course</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">course_id</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">8</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">course</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">title</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">50</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">course</td>
+<td style="text-align:right;">3</td>
+<td style="text-align:left;">dept_name</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">20</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">course</td>
+<td style="text-align:right;">4</td>
+<td style="text-align:left;">credits</td>
+<td style="text-align:left;">decimal</td>
+<td style="text-align:left;">2</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">department</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">dept_name</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">20</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">department</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">building</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">15</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">department</td>
+<td style="text-align:right;">3</td>
+<td style="text-align:left;">budget</td>
+<td style="text-align:left;">decimal</td>
+<td style="text-align:left;">12</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">grade_points</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">grade</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">2</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">grade_points</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">points</td>
+<td style="text-align:left;">decimal</td>
+<td style="text-align:left;">2</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">instructor</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">ID</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">5</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">instructor</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">name</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">20</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">instructor</td>
+<td style="text-align:right;">3</td>
+<td style="text-align:left;">dept_name</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">20</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">instructor</td>
+<td style="text-align:right;">4</td>
+<td style="text-align:left;">salary</td>
+<td style="text-align:left;">decimal</td>
+<td style="text-align:left;">8</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">math_circle</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">circle_id</td>
+<td style="text-align:left;">int</td>
+<td style="text-align:left;">10</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">math_circle</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">total_points</td>
+<td style="text-align:left;">int</td>
+<td style="text-align:left;">10</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">math_circle</td>
+<td style="text-align:right;">3</td>
+<td style="text-align:left;">circle_points</td>
+<td style="text-align:left;">int</td>
+<td style="text-align:left;">10</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">math_circle</td>
+<td style="text-align:right;">4</td>
+<td style="text-align:left;">pi_estimate</td>
+<td style="text-align:left;">float</td>
+<td style="text-align:left;">12</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">math_point</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">point_id</td>
+<td style="text-align:left;">int</td>
+<td style="text-align:left;">10</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">math_point</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">circle_id</td>
+<td style="text-align:left;">int</td>
+<td style="text-align:left;">10</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">math_point</td>
+<td style="text-align:right;">3</td>
+<td style="text-align:left;">x</td>
+<td style="text-align:left;">float</td>
+<td style="text-align:left;">12</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">math_point</td>
+<td style="text-align:right;">4</td>
+<td style="text-align:left;">y</td>
+<td style="text-align:left;">float</td>
+<td style="text-align:left;">12</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">math_shape2d</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">shape_id</td>
+<td style="text-align:left;">int</td>
+<td style="text-align:left;">10</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">math_shape2d</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">shape_name</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">25</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">math_shape2d</td>
+<td style="text-align:right;">3</td>
+<td style="text-align:left;">perimeter_formula</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">25</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">math_shape2d</td>
+<td style="text-align:right;">4</td>
+<td style="text-align:left;">area_formula</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">25</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">math_shape3d</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">shape_id</td>
+<td style="text-align:left;">int</td>
+<td style="text-align:left;">10</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">math_shape3d</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">shape_name</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">25</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">math_shape3d</td>
+<td style="text-align:right;">3</td>
+<td style="text-align:left;">area_formula</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">25</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">math_shape3d</td>
+<td style="text-align:right;">4</td>
+<td style="text-align:left;">volume_formula</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">25</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">prereq</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">course_id</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">8</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">prereq</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">prereq_id</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">8</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">product_sales</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">product_name</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">100</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">product_sales</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">store_location</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">50</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">product_sales</td>
+<td style="text-align:right;">3</td>
+<td style="text-align:left;">num_sales</td>
+<td style="text-align:left;">int</td>
+<td style="text-align:left;">10</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">query</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">query_id</td>
+<td style="text-align:left;">int</td>
+<td style="text-align:left;">10</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">query</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">query_text</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">9999</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">query</td>
+<td style="text-align:right;">3</td>
+<td style="text-align:left;">query_desc</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">999</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">query</td>
+<td style="text-align:right;">4</td>
+<td style="text-align:left;">query_db</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">30</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">query</td>
+<td style="text-align:right;">5</td>
+<td style="text-align:left;">query_rows</td>
+<td style="text-align:left;">int</td>
+<td style="text-align:left;">10</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">query</td>
+<td style="text-align:right;">6</td>
+<td style="text-align:left;">query_user</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">30</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">query</td>
+<td style="text-align:right;">7</td>
+<td style="text-align:left;">query_assn</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">30</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">query</td>
+<td style="text-align:right;">8</td>
+<td style="text-align:left;">query_dur</td>
+<td style="text-align:left;">decimal</td>
+<td style="text-align:left;">8</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">query</td>
+<td style="text-align:right;">9</td>
+<td style="text-align:left;">query_ended</td>
+<td style="text-align:left;">datetime</td>
+<td style="text-align:left;">None</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">section</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">course_id</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">8</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">section</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">sec_id</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">8</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">section</td>
+<td style="text-align:right;">3</td>
+<td style="text-align:left;">semester</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">6</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">section</td>
+<td style="text-align:right;">4</td>
+<td style="text-align:left;">year</td>
+<td style="text-align:left;">decimal</td>
+<td style="text-align:left;">4</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">section</td>
+<td style="text-align:right;">5</td>
+<td style="text-align:left;">building</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">15</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">section</td>
+<td style="text-align:right;">6</td>
+<td style="text-align:left;">room_number</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">7</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">section</td>
+<td style="text-align:right;">7</td>
+<td style="text-align:left;">time_slot_id</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">4</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">student</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">ID</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">5</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">student</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">name</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">20</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">student</td>
+<td style="text-align:right;">3</td>
+<td style="text-align:left;">dept_name</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">20</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">student</td>
+<td style="text-align:right;">4</td>
+<td style="text-align:left;">tot_cred</td>
+<td style="text-align:left;">decimal</td>
+<td style="text-align:left;">3</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">takes</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">ID</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">5</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">takes</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">course_id</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">8</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">takes</td>
+<td style="text-align:right;">3</td>
+<td style="text-align:left;">sec_id</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">8</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">takes</td>
+<td style="text-align:right;">4</td>
+<td style="text-align:left;">semester</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">6</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">takes</td>
+<td style="text-align:right;">5</td>
+<td style="text-align:left;">year</td>
+<td style="text-align:left;">decimal</td>
+<td style="text-align:left;">4</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">takes</td>
+<td style="text-align:right;">6</td>
+<td style="text-align:left;">grade</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">2</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">teaches</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">ID</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">5</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">teaches</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">course_id</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">8</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">teaches</td>
+<td style="text-align:right;">3</td>
+<td style="text-align:left;">sec_id</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">8</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">teaches</td>
+<td style="text-align:right;">4</td>
+<td style="text-align:left;">semester</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">6</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">teaches</td>
+<td style="text-align:right;">5</td>
+<td style="text-align:left;">year</td>
+<td style="text-align:left;">decimal</td>
+<td style="text-align:left;">4</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">time_slot</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">time_slot_id</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">4</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">time_slot</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">day</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">1</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">time_slot</td>
+<td style="text-align:right;">3</td>
+<td style="text-align:left;">start_hr</td>
+<td style="text-align:left;">decimal</td>
+<td style="text-align:left;">2</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">time_slot</td>
+<td style="text-align:right;">4</td>
+<td style="text-align:left;">start_min</td>
+<td style="text-align:left;">decimal</td>
+<td style="text-align:left;">2</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">time_slot</td>
+<td style="text-align:right;">5</td>
+<td style="text-align:left;">end_hr</td>
+<td style="text-align:left;">decimal</td>
+<td style="text-align:left;">2</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">time_slot</td>
+<td style="text-align:right;">6</td>
+<td style="text-align:left;">end_min</td>
+<td style="text-align:left;">decimal</td>
+<td style="text-align:left;">2</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">v_student_gpa</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Total GPA of all students</td>
+<td style="text-align:left;">decimal</td>
+<td style="text-align:left;">30</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">v_student_gpa</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">ID</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">5</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">v_table_backups</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">backup_id</td>
+<td style="text-align:left;">int</td>
+<td style="text-align:left;">10</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">v_table_backups</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">table_name</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">25</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">v_table_backups</td>
+<td style="text-align:right;">3</td>
+<td style="text-align:left;">num_rows</td>
+<td style="text-align:left;">int</td>
+<td style="text-align:left;">10</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">v_table_backups</td>
+<td style="text-align:right;">4</td>
+<td style="text-align:left;">num_cols</td>
+<td style="text-align:left;">int</td>
+<td style="text-align:left;">10</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">v_table_backups</td>
+<td style="text-align:right;">5</td>
+<td style="text-align:left;">csv_length</td>
+<td style="text-align:left;">int</td>
+<td style="text-align:left;">10</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">v_table_backups</td>
+<td style="text-align:right;">6</td>
+<td style="text-align:left;">xml_length</td>
+<td style="text-align:left;">int</td>
+<td style="text-align:left;">10</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">v_table_backups</td>
+<td style="text-align:right;">7</td>
+<td style="text-align:left;">json_length</td>
+<td style="text-align:left;">int</td>
+<td style="text-align:left;">10</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">v_table_backups</td>
+<td style="text-align:right;">8</td>
+<td style="text-align:left;">date_saved</td>
+<td style="text-align:left;">datetime</td>
+<td style="text-align:left;">None</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">v_takes_points</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">ID</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">5</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">v_takes_points</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">course_id</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">8</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">v_takes_points</td>
+<td style="text-align:right;">3</td>
+<td style="text-align:left;">sec_id</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">8</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">v_takes_points</td>
+<td style="text-align:right;">4</td>
+<td style="text-align:left;">semester</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">6</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">v_takes_points</td>
+<td style="text-align:right;">5</td>
+<td style="text-align:left;">year</td>
+<td style="text-align:left;">decimal</td>
+<td style="text-align:left;">4</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">v_takes_points</td>
+<td style="text-align:right;">6</td>
+<td style="text-align:left;">grade</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">2</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">v_takes_points</td>
+<td style="text-align:right;">7</td>
+<td style="text-align:left;">points</td>
+<td style="text-align:left;">decimal</td>
+<td style="text-align:left;">2</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">v_udb_table_columns</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">TABLE_NAME</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">64</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">v_udb_table_columns</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">COLUMN_NUM</td>
+<td style="text-align:left;">int</td>
+<td style="text-align:left;">10</td>
+<td style="text-align:left;">NO</td>
+</tr>
+<tr><td style="text-align:left;">v_udb_table_columns</td>
+<td style="text-align:right;">3</td>
+<td style="text-align:left;">COLUMN_NAME</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">64</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">v_udb_table_columns</td>
+<td style="text-align:right;">4</td>
+<td style="text-align:left;">DATA_TYPE</td>
+<td style="text-align:left;">longtext</td>
+<td style="text-align:left;">4294967295</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">v_udb_table_columns</td>
+<td style="text-align:right;">5</td>
+<td style="text-align:left;">LENGTH</td>
+<td style="text-align:left;">decimal</td>
+<td style="text-align:left;">20</td>
+<td style="text-align:left;">YES</td>
+</tr>
+<tr><td style="text-align:left;">v_udb_table_columns</td>
+<td style="text-align:right;">6</td>
+<td style="text-align:left;">nullable</td>
+<td style="text-align:left;">varchar</td>
+<td style="text-align:left;">3</td>
+<td style="text-align:left;">NO</td>
+</tr>
+</table>
+<h3>Get the number of columns per table</h3>
+<table id="table-Get-the-number-of-columns-per-table" style="width:100%"><th><a href="javascript:sortTable('table-Get-the-number-of-columns-per-table', 0, 'S')"">TABLE_NAME</a>
+</th>
+<th><a href="javascript:sortTable('table-Get-the-number-of-columns-per-table', 1, 'N')"">COLUMNS</a>
+</th>
+<tr><td style="text-align:left;">advisor</td>
+<td style="text-align:right;">2</td>
+</tr>
+<tr><td style="text-align:left;">as10_author_3nf</td>
+<td style="text-align:right;">2</td>
+</tr>
+<tr><td style="text-align:left;">as10_book2_1nf</td>
+<td style="text-align:right;">11</td>
+</tr>
+<tr><td style="text-align:left;">as10_book2_2nf</td>
+<td style="text-align:right;">9</td>
+</tr>
+<tr><td style="text-align:left;">as10_book_0nf</td>
+<td style="text-align:right;">13</td>
+</tr>
+<tr><td style="text-align:left;">as10_book_1nf</td>
+<td style="text-align:right;">12</td>
+</tr>
+<tr><td style="text-align:left;">as10_book_3nf</td>
+<td style="text-align:right;">6</td>
+</tr>
+<tr><td style="text-align:left;">as10_genre_3nf</td>
+<td style="text-align:right;">2</td>
+</tr>
+<tr><td style="text-align:left;">as10_price2_2nf</td>
+<td style="text-align:right;">3</td>
+</tr>
+<tr><td style="text-align:left;">as10_price_3nf</td>
+<td style="text-align:right;">3</td>
+</tr>
+<tr><td style="text-align:left;">as10_publisher_3nf</td>
+<td style="text-align:right;">2</td>
+</tr>
+<tr><td style="text-align:left;">as10_subject_1nf</td>
+<td style="text-align:right;">2</td>
+</tr>
+<tr><td style="text-align:left;">backup</td>
+<td style="text-align:right;">11</td>
+</tr>
+<tr><td style="text-align:left;">classroom</td>
+<td style="text-align:right;">3</td>
+</tr>
+<tr><td style="text-align:left;">course</td>
+<td style="text-align:right;">4</td>
+</tr>
+<tr><td style="text-align:left;">department</td>
+<td style="text-align:right;">3</td>
+</tr>
+<tr><td style="text-align:left;">grade_points</td>
+<td style="text-align:right;">2</td>
+</tr>
+<tr><td style="text-align:left;">instructor</td>
+<td style="text-align:right;">4</td>
+</tr>
+<tr><td style="text-align:left;">math_circle</td>
+<td style="text-align:right;">4</td>
+</tr>
+<tr><td style="text-align:left;">math_point</td>
+<td style="text-align:right;">4</td>
+</tr>
+<tr><td style="text-align:left;">math_shape2d</td>
+<td style="text-align:right;">4</td>
+</tr>
+<tr><td style="text-align:left;">math_shape3d</td>
+<td style="text-align:right;">4</td>
+</tr>
+<tr><td style="text-align:left;">prereq</td>
+<td style="text-align:right;">2</td>
+</tr>
+<tr><td style="text-align:left;">product_sales</td>
+<td style="text-align:right;">3</td>
+</tr>
+<tr><td style="text-align:left;">query</td>
+<td style="text-align:right;">9</td>
+</tr>
+<tr><td style="text-align:left;">section</td>
+<td style="text-align:right;">7</td>
+</tr>
+<tr><td style="text-align:left;">student</td>
+<td style="text-align:right;">4</td>
+</tr>
+<tr><td style="text-align:left;">takes</td>
+<td style="text-align:right;">6</td>
+</tr>
+<tr><td style="text-align:left;">teaches</td>
+<td style="text-align:right;">5</td>
+</tr>
+<tr><td style="text-align:left;">time_slot</td>
+<td style="text-align:right;">6</td>
+</tr>
+<tr><td style="text-align:left;">v_student_gpa</td>
+<td style="text-align:right;">2</td>
+</tr>
+<tr><td style="text-align:left;">v_table_backups</td>
+<td style="text-align:right;">8</td>
+</tr>
+<tr><td style="text-align:left;">v_takes_points</td>
+<td style="text-align:right;">7</td>
+</tr>
+<tr><td style="text-align:left;">v_udb_table_columns</td>
+<td style="text-align:right;">6</td>
+</tr>
+</table>
+<center><h6>&copy;2024 by Developer • Generated on Jan. 18, 2024 18:24 PM</h6>
+</center>
+</body>
+</html>

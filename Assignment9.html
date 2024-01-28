@@ -1,0 +1,423 @@
+<html><head><meta name="description" content="OutputUtil developed by LT. Executed by C:\Users\derek\PycharmProjects\pythonProject1">
+<style>body {
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1 {
+    color: darkgray;
+    text-align: center;
+}
+h3 {
+    color: darkgray;
+}
+.vericaltext {
+ writing-mode: vertical-lr;
+ text-orientation: upright;
+}
+
+table, th, td {
+    border: 1px solid;
+    text-align: center;
+    vertical-align: top
+}
+th > a {
+    color: white;
+}
+th {
+    background-color: darkgray;
+    color: white;
+}
+tr:nth-child(even) {
+    background-color: gray;
+}
+tr:nth-child(odd) {
+    background-color: lightgray;
+}</style>
+<script>
+function sortTable(tableId, colNum, colType) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchCount = 0;
+  table = document.getElementById(tableId);
+  switching = true;
+  dir = "asc";
+  while (switching) {
+    switching = false;
+    rows = table.rows;
+    for (i = 1; i < (rows.length - 1); i++) {
+      shouldSwitch = false;
+      x = rows[i].getElementsByTagName("td")[colNum];
+      y = rows[i + 1].getElementsByTagName("td")[colNum];
+      if (colType == 'N') { 
+        if (((dir == "asc") && (Number(x.innerHTML) > Number(y.innerHTML))) ||
+            ((dir == "desc") && (Number(x.innerHTML) < Number(y.innerHTML)))) {
+          shouldSwitch = true;
+          break;
+        }
+      } else {
+        if (((dir == "asc") && (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase())) ||
+            ((dir == "desc") && (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()))) {
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      switchCount ++;
+    } else {
+     if (switchCount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+</script>
+</head>
+<body><h1>All queries for 'Assignment9'</h1>
+<h3>Table of Contents</h3>
+<ol><li><a href="#table-[3]-retrieve-data-from-table-product-sales">[3] retrieve data from table product sales</a>
+</li>
+<li><a href="#table-[4]-Write-a-query-to-retrieve-all-product-names-from-the-product_sales-table.">[4] Write a query to retrieve all product names from the product_sales table.</a>
+</li>
+<li><a href="#table-[5]-Write-a-query-to-retrieve-all-product-names-and-sum-from-the-product_sales-table.">[5] Write a query to retrieve all product names and sum from the product_sales table.</a>
+</li>
+<li><a href="#table-[7]-Modify-the-query-to-include-a-group-by-clause-on-the-product_name">[7] Modify the query to include a group by clause on the product_name</a>
+</li>
+<li><a href="#table-[8]-Modify-the-query-to-cover-all-four-locations:">[8] Modify the query to cover all four locations:</a>
+</li>
+</ol>
+<h3>[3] retrieve data from table product sales</h3>
+<table id="table-[3]-retrieve-data-from-table-product-sales" style="width:100%"><th><a href="javascript:sortTable('table-[3]-retrieve-data-from-table-product-sales', 0, 'S')"">product_name</a>
+</th>
+<th><a href="javascript:sortTable('table-[3]-retrieve-data-from-table-product-sales', 1, 'S')"">store_location</a>
+</th>
+<th><a href="javascript:sortTable('table-[3]-retrieve-data-from-table-product-sales', 2, 'N')"">num_sales</a>
+</th>
+<tr><td style="text-align:left;">Chair</td>
+<td style="text-align:left;">North</td>
+<td style="text-align:right;">55</td>
+</tr>
+<tr><td style="text-align:left;">Desk</td>
+<td style="text-align:left;">Central</td>
+<td style="text-align:right;">120</td>
+</tr>
+<tr><td style="text-align:left;">Couch</td>
+<td style="text-align:left;">Central</td>
+<td style="text-align:right;">78</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+<td style="text-align:left;">South</td>
+<td style="text-align:right;">23</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+<td style="text-align:left;">South</td>
+<td style="text-align:right;">10</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+<td style="text-align:left;">North</td>
+<td style="text-align:right;">98</td>
+</tr>
+<tr><td style="text-align:left;">Desk</td>
+<td style="text-align:left;">West</td>
+<td style="text-align:right;">61</td>
+</tr>
+<tr><td style="text-align:left;">Couch</td>
+<td style="text-align:left;">North</td>
+<td style="text-align:right;">180</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+<td style="text-align:left;">South</td>
+<td style="text-align:right;">14</td>
+</tr>
+<tr><td style="text-align:left;">Desk</td>
+<td style="text-align:left;">North</td>
+<td style="text-align:right;">45</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+<td style="text-align:left;">North</td>
+<td style="text-align:right;">87</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+<td style="text-align:left;">Central</td>
+<td style="text-align:right;">34</td>
+</tr>
+<tr><td style="text-align:left;">Desk</td>
+<td style="text-align:left;">South</td>
+<td style="text-align:right;">42</td>
+</tr>
+<tr><td style="text-align:left;">Couch</td>
+<td style="text-align:left;">West</td>
+<td style="text-align:right;">58</td>
+</tr>
+<tr><td style="text-align:left;">Couch</td>
+<td style="text-align:left;">Central</td>
+<td style="text-align:right;">27</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+<td style="text-align:left;">South</td>
+<td style="text-align:right;">91</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+<td style="text-align:left;">West</td>
+<td style="text-align:right;">82</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+<td style="text-align:left;">North</td>
+<td style="text-align:right;">37</td>
+</tr>
+<tr><td style="text-align:left;">Desk</td>
+<td style="text-align:left;">North</td>
+<td style="text-align:right;">68</td>
+</tr>
+<tr><td style="text-align:left;">Couch</td>
+<td style="text-align:left;">Central</td>
+<td style="text-align:right;">54</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+<td style="text-align:left;">South</td>
+<td style="text-align:right;">81</td>
+</tr>
+<tr><td style="text-align:left;">Desk</td>
+<td style="text-align:left;">North</td>
+<td style="text-align:right;">25</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+<td style="text-align:left;">North</td>
+<td style="text-align:right;">46</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+<td style="text-align:left;">Central</td>
+<td style="text-align:right;">121</td>
+</tr>
+<tr><td style="text-align:left;">Desk</td>
+<td style="text-align:left;">South</td>
+<td style="text-align:right;">85</td>
+</tr>
+<tr><td style="text-align:left;">Couch</td>
+<td style="text-align:left;">North</td>
+<td style="text-align:right;">43</td>
+</tr>
+<tr><td style="text-align:left;">Desk</td>
+<td style="text-align:left;">West</td>
+<td style="text-align:right;">10</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+<td style="text-align:left;">North</td>
+<td style="text-align:right;">5</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+<td style="text-align:left;">Central</td>
+<td style="text-align:right;">16</td>
+</tr>
+<tr><td style="text-align:left;">Desk</td>
+<td style="text-align:left;">South</td>
+<td style="text-align:right;">9</td>
+</tr>
+<tr><td style="text-align:left;">Couch</td>
+<td style="text-align:left;">West</td>
+<td style="text-align:right;">22</td>
+</tr>
+<tr><td style="text-align:left;">Couch</td>
+<td style="text-align:left;">Central</td>
+<td style="text-align:right;">59</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+<td style="text-align:left;">South</td>
+<td style="text-align:right;">76</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+<td style="text-align:left;">West</td>
+<td style="text-align:right;">48</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+<td style="text-align:left;">North</td>
+<td style="text-align:right;">19</td>
+</tr>
+<tr><td style="text-align:left;">Desk</td>
+<td style="text-align:left;">North</td>
+<td style="text-align:right;">3</td>
+</tr>
+<tr><td style="text-align:left;">Couch</td>
+<td style="text-align:left;">West</td>
+<td style="text-align:right;">63</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+<td style="text-align:left;">South</td>
+<td style="text-align:right;">81</td>
+</tr>
+<tr><td style="text-align:left;">Desk</td>
+<td style="text-align:left;">North</td>
+<td style="text-align:right;">85</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+<td style="text-align:left;">North</td>
+<td style="text-align:right;">90</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+<td style="text-align:left;">Central</td>
+<td style="text-align:right;">47</td>
+</tr>
+<tr><td style="text-align:left;">Desk</td>
+<td style="text-align:left;">West</td>
+<td style="text-align:right;">63</td>
+</tr>
+<tr><td style="text-align:left;">Couch</td>
+<td style="text-align:left;">North</td>
+<td style="text-align:right;">28</td>
+</tr>
+</table>
+<h3>[4] Write a query to retrieve all product names from the product_sales table.</h3>
+<table id="table-[4]-Write-a-query-to-retrieve-all-product-names-from-the-product_sales-table." style="width:100%"><th><a href="javascript:sortTable('table-[4]-Write-a-query-to-retrieve-all-product-names-from-the-product_sales-table.', 0, 'S')"">product_name</a>
+</th>
+<tr><td style="text-align:left;">Chair</td>
+</tr>
+<tr><td style="text-align:left;">Desk</td>
+</tr>
+<tr><td style="text-align:left;">Couch</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+</tr>
+<tr><td style="text-align:left;">Desk</td>
+</tr>
+<tr><td style="text-align:left;">Couch</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+</tr>
+<tr><td style="text-align:left;">Desk</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+</tr>
+<tr><td style="text-align:left;">Desk</td>
+</tr>
+<tr><td style="text-align:left;">Couch</td>
+</tr>
+<tr><td style="text-align:left;">Couch</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+</tr>
+<tr><td style="text-align:left;">Desk</td>
+</tr>
+<tr><td style="text-align:left;">Couch</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+</tr>
+<tr><td style="text-align:left;">Desk</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+</tr>
+<tr><td style="text-align:left;">Desk</td>
+</tr>
+<tr><td style="text-align:left;">Couch</td>
+</tr>
+<tr><td style="text-align:left;">Desk</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+</tr>
+<tr><td style="text-align:left;">Desk</td>
+</tr>
+<tr><td style="text-align:left;">Couch</td>
+</tr>
+<tr><td style="text-align:left;">Couch</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+</tr>
+<tr><td style="text-align:left;">Desk</td>
+</tr>
+<tr><td style="text-align:left;">Couch</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+</tr>
+<tr><td style="text-align:left;">Desk</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+</tr>
+<tr><td style="text-align:left;">Chair</td>
+</tr>
+<tr><td style="text-align:left;">Desk</td>
+</tr>
+<tr><td style="text-align:left;">Couch</td>
+</tr>
+</table>
+<h3>[5] Write a query to retrieve all product names and sum from the product_sales table.</h3>
+<table id="table-[5]-Write-a-query-to-retrieve-all-product-names-and-sum-from-the-product_sales-table." style="width:100%"><th><a href="javascript:sortTable('table-[5]-Write-a-query-to-retrieve-all-product-names-and-sum-from-the-product_sales-table.', 0, 'S')"">product_name</a>
+</th>
+<th><a href="javascript:sortTable('table-[5]-Write-a-query-to-retrieve-all-product-names-and-sum-from-the-product_sales-table.', 1, 'S')"">SUM(num_sales)</a>
+</th>
+<tr><td style="text-align:left;">Chair</td>
+<td style="text-align:left;">1161</td>
+</tr>
+<tr><td style="text-align:left;">Desk</td>
+<td style="text-align:left;">616</td>
+</tr>
+<tr><td style="text-align:left;">Couch</td>
+<td style="text-align:left;">612</td>
+</tr>
+</table>
+<h3>[7] Modify the query to include a group by clause on the product_name</h3>
+<table id="table-[7]-Modify-the-query-to-include-a-group-by-clause-on-the-product_name" style="width:100%"><th><a href="javascript:sortTable('table-[7]-Modify-the-query-to-include-a-group-by-clause-on-the-product_name', 0, 'S')"">product_name</a>
+</th>
+<th><a href="javascript:sortTable('table-[7]-Modify-the-query-to-include-a-group-by-clause-on-the-product_name', 1, 'S')"">north</a>
+</th>
+<tr><td style="text-align:left;">Chair</td>
+<td style="text-align:left;">437</td>
+</tr>
+<tr><td style="text-align:left;">Desk</td>
+<td style="text-align:left;">226</td>
+</tr>
+<tr><td style="text-align:left;">Couch</td>
+<td style="text-align:left;">251</td>
+</tr>
+</table>
+<h3>[8] Modify the query to cover all four locations:</h3>
+<table id="table-[8]-Modify-the-query-to-cover-all-four-locations:" style="width:100%"><th><a href="javascript:sortTable('table-[8]-Modify-the-query-to-cover-all-four-locations:', 0, 'S')"">product_name</a>
+</th>
+<th><a href="javascript:sortTable('table-[8]-Modify-the-query-to-cover-all-four-locations:', 1, 'S')"">north</a>
+</th>
+<th><a href="javascript:sortTable('table-[8]-Modify-the-query-to-cover-all-four-locations:', 2, 'S')"">central</a>
+</th>
+<th><a href="javascript:sortTable('table-[8]-Modify-the-query-to-cover-all-four-locations:', 3, 'S')"">south</a>
+</th>
+<th><a href="javascript:sortTable('table-[8]-Modify-the-query-to-cover-all-four-locations:', 4, 'S')"">west</a>
+</th>
+<tr><td style="text-align:left;">Chair</td>
+<td style="text-align:left;">437</td>
+<td style="text-align:left;">218</td>
+<td style="text-align:left;">376</td>
+<td style="text-align:left;">130</td>
+</tr>
+<tr><td style="text-align:left;">Desk</td>
+<td style="text-align:left;">226</td>
+<td style="text-align:left;">120</td>
+<td style="text-align:left;">136</td>
+<td style="text-align:left;">134</td>
+</tr>
+<tr><td style="text-align:left;">Couch</td>
+<td style="text-align:left;">251</td>
+<td style="text-align:left;">218</td>
+<td style="text-align:left;">0</td>
+<td style="text-align:left;">143</td>
+</tr>
+</table>
+<center><h6>&copy;2024 by Developer • Generated on Jan. 23, 2024 01:54 AM</h6>
+</center>
+</body>
+</html>

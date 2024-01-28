@@ -1,0 +1,445 @@
+<html><head><meta name="description" content="OutputUtil developed by LT. Executed by C:\Users\derek\PycharmProjects\pythonProject1">
+<style>body {
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1 {
+    color: darkgray;
+    text-align: center;
+}
+h3 {
+    color: darkgray;
+}
+.vericaltext {
+ writing-mode: vertical-lr;
+ text-orientation: upright;
+}
+
+table, th, td {
+    border: 1px solid;
+    text-align: center;
+    vertical-align: top
+}
+th > a {
+    color: white;
+}
+th {
+    background-color: darkgray;
+    color: white;
+}
+tr:nth-child(even) {
+    background-color: gray;
+}
+tr:nth-child(odd) {
+    background-color: lightgray;
+}</style>
+<script>
+function sortTable(tableId, colNum, colType) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchCount = 0;
+  table = document.getElementById(tableId);
+  switching = true;
+  dir = "asc";
+  while (switching) {
+    switching = false;
+    rows = table.rows;
+    for (i = 1; i < (rows.length - 1); i++) {
+      shouldSwitch = false;
+      x = rows[i].getElementsByTagName("td")[colNum];
+      y = rows[i + 1].getElementsByTagName("td")[colNum];
+      if (colType == 'N') { 
+        if (((dir == "asc") && (Number(x.innerHTML) > Number(y.innerHTML))) ||
+            ((dir == "desc") && (Number(x.innerHTML) < Number(y.innerHTML)))) {
+          shouldSwitch = true;
+          break;
+        }
+      } else {
+        if (((dir == "asc") && (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase())) ||
+            ((dir == "desc") && (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()))) {
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      switchCount ++;
+    } else {
+     if (switchCount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+</script>
+</head>
+<body><h1>All queries for 'Assignment10'</h1>
+<h3>Table of Contents</h3>
+<ol><li><a href="#table-Retrieve-all-rows-from-table-as10_book_0nf">Retrieve all rows from table as10_book_0nf</a>
+</li>
+<li><a href="#table-Retrieve-all-rows-from-table-as10_book_1nf">Retrieve all rows from table as10_book_1nf</a>
+</li>
+<li><a href="#table-Retrieve-all-rows-from-table-as10_subject_1nf">Retrieve all rows from table as10_subject_1nf</a>
+</li>
+<li><a href="#table-Retrieve-all-rows-from-table-as10_book2_1nf">Retrieve all rows from table as10_book2_1nf</a>
+</li>
+<li><a href="#table-Retrieve-all-rows-from-table-as10_book2_2nf">Retrieve all rows from table as10_book2_2nf</a>
+</li>
+<li><a href="#table-Retrieve-all-rows-from-table-as10_price2_2nf">Retrieve all rows from table as10_price2_2nf</a>
+</li>
+<li><a href="#table-Retrieve-all-rows-from-table-as10_book_3nf">Retrieve all rows from table as10_book_3nf</a>
+</li>
+<li><a href="#table-Retrieve-all-rows-from-table-as10_price_3nf">Retrieve all rows from table as10_price_3nf</a>
+</li>
+<li><a href="#table-Retrieve-all-rows-from-table-as10_author_3nf">Retrieve all rows from table as10_author_3nf</a>
+</li>
+<li><a href="#table-Retrieve-all-rows-from-table-as10_publisher_3nf">Retrieve all rows from table as10_publisher_3nf</a>
+</li>
+<li><a href="#table-Retrieve-all-rows-from-table-as10_genre_3nf">Retrieve all rows from table as10_genre_3nf</a>
+</li>
+</ol>
+<h3>Retrieve all rows from table as10_book_0nf</h3>
+<table id="table-Retrieve-all-rows-from-table-as10_book_0nf" style="width:100%"><th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book_0nf', 0, 'N')"">isbn</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book_0nf', 1, 'S')"">title</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book_0nf', 2, 'S')"">author</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book_0nf', 3, 'S')"">author_nationality</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book_0nf', 4, 'S')"">format</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book_0nf', 5, 'S')"">price</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book_0nf', 6, 'S')"">subject</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book_0nf', 7, 'N')"">pages</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book_0nf', 8, 'S')"">thickness</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book_0nf', 9, 'S')"">publisher</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book_0nf', 10, 'S')"">publisher_country</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book_0nf', 11, 'N')"">genre_id</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book_0nf', 12, 'S')"">genre_name</a>
+</th>
+<tr><td style="text-align:right;">1590593324</td>
+<td style="text-align:left;">Beginning MySQL Database Design and Optimization</td>
+<td style="text-align:left;">Chad Russell</td>
+<td style="text-align:left;">American</td>
+<td style="text-align:left;">Hardcover</td>
+<td style="text-align:left;">49.99</td>
+<td style="text-align:left;">MySQL Database Design</td>
+<td style="text-align:right;">520</td>
+<td style="text-align:left;">Thick</td>
+<td style="text-align:left;">Apress</td>
+<td style="text-align:left;">USA</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Tutorial</td>
+</tr>
+</table>
+<h3>Retrieve all rows from table as10_book_1nf</h3>
+<table id="table-Retrieve-all-rows-from-table-as10_book_1nf" style="width:100%"><th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book_1nf', 0, 'N')"">isbn</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book_1nf', 1, 'S')"">title</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book_1nf', 2, 'S')"">author</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book_1nf', 3, 'S')"">author_nationality</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book_1nf', 4, 'S')"">format</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book_1nf', 5, 'S')"">price</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book_1nf', 6, 'N')"">pages</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book_1nf', 7, 'S')"">thickness</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book_1nf', 8, 'S')"">publisher</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book_1nf', 9, 'S')"">publisher_country</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book_1nf', 10, 'N')"">genre_id</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book_1nf', 11, 'S')"">genre_name</a>
+</th>
+<tr><td style="text-align:right;">1590593324</td>
+<td style="text-align:left;">Beginning MySQL Database Design and Optimization</td>
+<td style="text-align:left;">Chad Russell</td>
+<td style="text-align:left;">American</td>
+<td style="text-align:left;">Hardcover</td>
+<td style="text-align:left;">49.99</td>
+<td style="text-align:right;">520</td>
+<td style="text-align:left;">Thick</td>
+<td style="text-align:left;">Apress</td>
+<td style="text-align:left;">USA</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Tutorial</td>
+</tr>
+</table>
+<h3>Retrieve all rows from table as10_subject_1nf</h3>
+<table id="table-Retrieve-all-rows-from-table-as10_subject_1nf" style="width:100%"><th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_subject_1nf', 0, 'N')"">isbn</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_subject_1nf', 1, 'S')"">subject</a>
+</th>
+<tr><td style="text-align:right;">1590593324</td>
+<td style="text-align:left;">MySQL</td>
+</tr>
+<tr><td style="text-align:right;">1590593324</td>
+<td style="text-align:left;">Database</td>
+</tr>
+<tr><td style="text-align:right;">1590593324</td>
+<td style="text-align:left;">Design</td>
+</tr>
+</table>
+<h3>Retrieve all rows from table as10_book2_1nf</h3>
+<table id="table-Retrieve-all-rows-from-table-as10_book2_1nf" style="width:100%"><th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book2_1nf', 0, 'S')"">title</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book2_1nf', 1, 'S')"">format</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book2_1nf', 2, 'S')"">author</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book2_1nf', 3, 'S')"">author_nationality</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book2_1nf', 4, 'S')"">price</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book2_1nf', 5, 'N')"">pages</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book2_1nf', 6, 'S')"">thickness</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book2_1nf', 7, 'S')"">publisher</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book2_1nf', 8, 'S')"">publisher_country</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book2_1nf', 9, 'N')"">genre_id</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book2_1nf', 10, 'S')"">genre_name</a>
+</th>
+<tr><td style="text-align:left;">Beginning MySQL Database Design and Optimization</td>
+<td style="text-align:left;">Hardcover</td>
+<td style="text-align:left;">Chad Russell</td>
+<td style="text-align:left;">American</td>
+<td style="text-align:left;">49.99</td>
+<td style="text-align:right;">520</td>
+<td style="text-align:left;">Thick</td>
+<td style="text-align:left;">Apress</td>
+<td style="text-align:left;">USA</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Tutorial</td>
+</tr>
+<tr><td style="text-align:left;">Beginning MySQL Database Design and Optimization</td>
+<td style="text-align:left;">E-book</td>
+<td style="text-align:left;">Chad Russell</td>
+<td style="text-align:left;">American</td>
+<td style="text-align:left;">22.34</td>
+<td style="text-align:right;">520</td>
+<td style="text-align:left;">Thick</td>
+<td style="text-align:left;">Apress</td>
+<td style="text-align:left;">USA</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Tutorial</td>
+</tr>
+<tr><td style="text-align:left;">The Relational Model for Database Management: Version 2</td>
+<td style="text-align:left;">E-book</td>
+<td style="text-align:left;">E.F.Codd</td>
+<td style="text-align:left;">British</td>
+<td style="text-align:left;">13.88</td>
+<td style="text-align:right;">538</td>
+<td style="text-align:left;">Thick</td>
+<td style="text-align:left;">Addison-Wesley</td>
+<td style="text-align:left;">USA</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">Popular science</td>
+</tr>
+<tr><td style="text-align:left;">The Relational Model for Database Management: Version 2</td>
+<td style="text-align:left;">Paperback</td>
+<td style="text-align:left;">E.F.Codd</td>
+<td style="text-align:left;">British</td>
+<td style="text-align:left;">39.99</td>
+<td style="text-align:right;">538</td>
+<td style="text-align:left;">Thick</td>
+<td style="text-align:left;">Addison-Wesley</td>
+<td style="text-align:left;">USA</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">Popular science</td>
+</tr>
+</table>
+<h3>Retrieve all rows from table as10_book2_2nf</h3>
+<table id="table-Retrieve-all-rows-from-table-as10_book2_2nf" style="width:100%"><th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book2_2nf', 0, 'S')"">title</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book2_2nf', 1, 'S')"">author</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book2_2nf', 2, 'S')"">author_nationality</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book2_2nf', 3, 'N')"">pages</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book2_2nf', 4, 'S')"">thickness</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book2_2nf', 5, 'S')"">publisher</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book2_2nf', 6, 'S')"">publisher_country</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book2_2nf', 7, 'N')"">genre_id</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book2_2nf', 8, 'S')"">genre_name</a>
+</th>
+<tr><td style="text-align:left;">Beginning MySQL Database Design and Optimization</td>
+<td style="text-align:left;">Chad Russell</td>
+<td style="text-align:left;">American</td>
+<td style="text-align:right;">520</td>
+<td style="text-align:left;">Thick</td>
+<td style="text-align:left;">Apress</td>
+<td style="text-align:left;">USA</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Tutorial</td>
+</tr>
+<tr><td style="text-align:left;">Beginning MySQL Database Design and Optimization</td>
+<td style="text-align:left;">Chad Russell</td>
+<td style="text-align:left;">American</td>
+<td style="text-align:right;">520</td>
+<td style="text-align:left;">Thick</td>
+<td style="text-align:left;">Apress</td>
+<td style="text-align:left;">USA</td>
+<td style="text-align:right;">1</td>
+<td style="text-align:left;">Tutorial</td>
+</tr>
+<tr><td style="text-align:left;">The Relational Model for Database Management: Version 2</td>
+<td style="text-align:left;">E.F.Codd</td>
+<td style="text-align:left;">British</td>
+<td style="text-align:right;">538</td>
+<td style="text-align:left;">Thick</td>
+<td style="text-align:left;">Addison-Wesley</td>
+<td style="text-align:left;">USA</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">Popular science</td>
+</tr>
+<tr><td style="text-align:left;">The Relational Model for Database Management: Version 2</td>
+<td style="text-align:left;">E.F.Codd</td>
+<td style="text-align:left;">British</td>
+<td style="text-align:right;">538</td>
+<td style="text-align:left;">Thick</td>
+<td style="text-align:left;">Addison-Wesley</td>
+<td style="text-align:left;">USA</td>
+<td style="text-align:right;">2</td>
+<td style="text-align:left;">Popular science</td>
+</tr>
+</table>
+<h3>Retrieve all rows from table as10_price2_2nf</h3>
+<table id="table-Retrieve-all-rows-from-table-as10_price2_2nf" style="width:100%"><th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_price2_2nf', 0, 'S')"">title</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_price2_2nf', 1, 'S')"">format</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_price2_2nf', 2, 'S')"">price</a>
+</th>
+<tr><td style="text-align:left;">Beginning MySQL Database Design and Optimization</td>
+<td style="text-align:left;">Hardcover</td>
+<td style="text-align:left;">49.99</td>
+</tr>
+<tr><td style="text-align:left;">Beginning MySQL Database Design and Optimization</td>
+<td style="text-align:left;">E-book</td>
+<td style="text-align:left;">22.34</td>
+</tr>
+<tr><td style="text-align:left;">The Relational Model for Database Management: Version 2</td>
+<td style="text-align:left;">E-book</td>
+<td style="text-align:left;">13.88</td>
+</tr>
+<tr><td style="text-align:left;">The Relational Model for Database Management: Version 2</td>
+<td style="text-align:left;">Paperback</td>
+<td style="text-align:left;">39.99</td>
+</tr>
+</table>
+<h3>Retrieve all rows from table as10_book_3nf</h3>
+<table id="table-Retrieve-all-rows-from-table-as10_book_3nf" style="width:100%"><th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book_3nf', 0, 'S')"">title</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book_3nf', 1, 'S')"">author</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book_3nf', 2, 'N')"">pages</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book_3nf', 3, 'S')"">thickness</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book_3nf', 4, 'S')"">publisher</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_book_3nf', 5, 'N')"">genre_id</a>
+</th>
+<tr><td style="text-align:left;">Beginning MySQL Database Design and Optimization</td>
+<td style="text-align:left;">Chad Russell</td>
+<td style="text-align:right;">520</td>
+<td style="text-align:left;">Thick</td>
+<td style="text-align:left;">Apress</td>
+<td style="text-align:right;">1</td>
+</tr>
+<tr><td style="text-align:left;">The Relational Model for Database Management: Version 2</td>
+<td style="text-align:left;">E.F.Codd</td>
+<td style="text-align:right;">538</td>
+<td style="text-align:left;">Thick</td>
+<td style="text-align:left;">Addison-Wesley</td>
+<td style="text-align:right;">2</td>
+</tr>
+</table>
+<h3>Retrieve all rows from table as10_price_3nf</h3>
+<table id="table-Retrieve-all-rows-from-table-as10_price_3nf" style="width:100%"><th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_price_3nf', 0, 'S')"">title</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_price_3nf', 1, 'S')"">format</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_price_3nf', 2, 'S')"">price</a>
+</th>
+<tr><td style="text-align:left;">Beginning MySQL Database Design and Optimization</td>
+<td style="text-align:left;">Hardcover</td>
+<td style="text-align:left;">49.99</td>
+</tr>
+<tr><td style="text-align:left;">Beginning MySQL Database Design and Optimization</td>
+<td style="text-align:left;">E-book</td>
+<td style="text-align:left;">22.34</td>
+</tr>
+<tr><td style="text-align:left;">The Relational Model for Database Management: Version 2</td>
+<td style="text-align:left;">E-book</td>
+<td style="text-align:left;">13.88</td>
+</tr>
+<tr><td style="text-align:left;">The Relational Model for Database Management: Version 2</td>
+<td style="text-align:left;">Paperback</td>
+<td style="text-align:left;">39.99</td>
+</tr>
+</table>
+<h3>Retrieve all rows from table as10_author_3nf</h3>
+<table id="table-Retrieve-all-rows-from-table-as10_author_3nf" style="width:100%"><th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_author_3nf', 0, 'S')"">author</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_author_3nf', 1, 'S')"">nationality</a>
+</th>
+<tr><td style="text-align:left;">Chad Russell</td>
+<td style="text-align:left;">American</td>
+</tr>
+<tr><td style="text-align:left;">E.F.Codd</td>
+<td style="text-align:left;">British</td>
+</tr>
+</table>
+<h3>Retrieve all rows from table as10_publisher_3nf</h3>
+<table id="table-Retrieve-all-rows-from-table-as10_publisher_3nf" style="width:100%"><th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_publisher_3nf', 0, 'S')"">publisher</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_publisher_3nf', 1, 'S')"">country</a>
+</th>
+<tr><td style="text-align:left;">Apress</td>
+<td style="text-align:left;">USA</td>
+</tr>
+<tr><td style="text-align:left;">Addison-Wesley</td>
+<td style="text-align:left;">USA</td>
+</tr>
+</table>
+<h3>Retrieve all rows from table as10_genre_3nf</h3>
+<table id="table-Retrieve-all-rows-from-table-as10_genre_3nf" style="width:100%"><th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_genre_3nf', 0, 'N')"">genre_id</a>
+</th>
+<th><a href="javascript:sortTable('table-Retrieve-all-rows-from-table-as10_genre_3nf', 1, 'S')"">name</a>
+</th>
+<tr><td style="text-align:right;">1</td>
+<td style="text-align:left;">Tutorial</td>
+</tr>
+<tr><td style="text-align:right;">2</td>
+<td style="text-align:left;">Popular science</td>
+</tr>
+</table>
+<center><h6>&copy;2024 by Developer • Generated on Jan. 23, 2024 06:54 AM</h6>
+</center>
+</body>
+</html>
